@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     public Transform orientation;
     public float groundDrag;
 
+    [Header("References")]
+    public GameObject flashlight;
+
     float horizontalInput;
     float verticalInput;
 
@@ -39,6 +42,12 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
+        //if right mouse click is pressed, turn on flashlight
+        if (Input.GetMouseButtonDown(1))
+        {
+            flashlight.SetActive(!flashlight.activeSelf);
+        }
     }
 
     void MovePlayer()
