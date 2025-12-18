@@ -11,11 +11,20 @@ public class ClosetQTEMiniGame : MonoBehaviour
     void Start()
     {
         ChangeplayerPos = (Vector3.right / 2);
+
+        Vector3 RandomX = FirstCheck.position;
+        RandomX.x = Random.RandomRange(100, 1800);
+        FirstCheck.position = RandomX;
+        RandomX = SecondCheck.position;
+        RandomX.x = Random.RandomRange(100, 1800);
+        SecondCheck.position = RandomX;
     }
 
     // Update is called once per frame
     void Update()
     {
+        bool FirstCheckActive = FirstCheck.gameObject.activeInHierarchy;
+        bool SecondCheckActive = SecondCheck.gameObject.activeInHierarchy;
         if (FirstCheck != null)
         {
             CheckCollision(FirstCheck);
@@ -25,7 +34,7 @@ public class ClosetQTEMiniGame : MonoBehaviour
         {
             CheckCollision(SecondCheck);
         }
-        if (SecondCheck == null && FirstCheck == null)
+        if (!FirstCheckActive && !SecondCheckActive)
         {
             this.gameObject.SetActive(false);
         }
@@ -36,7 +45,7 @@ public class ClosetQTEMiniGame : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Destroy(Collison.gameObject);
+                Collison.gameObject.SetActive(false);
             }
         }
         PlayerObject.position -= ChangeplayerPos * Speed;
