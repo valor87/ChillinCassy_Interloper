@@ -481,6 +481,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4af2a8275c12f4787ee21e69902e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QTEMiniGame: {fileID: 0}
+  QTEGameRunTime: 6
+  RunGame: 0
   PlayerCurrentPos: {fileID: 0}
   RightClosetDoor: {fileID: 8832012108712751176}
   LeftClosetDoor: {fileID: 666223592175680521}

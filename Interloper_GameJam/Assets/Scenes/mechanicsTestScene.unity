@@ -626,6 +626,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &438517312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6900134796994166198, guid: c9da65aea5c8fa740b3aafa91ecef015, type: 3}
+  m_PrefabInstance: {fileID: 4751078367803390025}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &617161928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,13 +1737,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 714849945925852116, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.97
+      objectReference: {fileID: 0}
     - target: {fileID: 894019914191495376, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -34.52
       objectReference: {fileID: 0}
     - target: {fileID: 894019914191495376, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 894019914191495376, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1852,6 +1861,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4180072596505826299, guid: 7f59d91e7bddb3e4a93ce1b11bcdbb3b, type: 3}
+      propertyPath: QTEMiniGame
+      value: 
+      objectReference: {fileID: 438517312}
     - target: {fileID: 4180072596505826299, guid: 7f59d91e7bddb3e4a93ce1b11bcdbb3b, type: 3}
       propertyPath: PlayerCurrentPos
       value: 

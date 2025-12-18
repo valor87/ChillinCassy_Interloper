@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class PlayerHidingInCloset : MonoBehaviour
 {
+    [Header("For Closet MiniGame")]
+    public GameObject QTEMiniGame;
+    [Range(2, 10)]
+    public int QTEGameRunTime;
+    public bool RunGame;
+    [Space(10)]
+    [Header("Going in and out of the closet")]
     public Transform PlayerCurrentPos;
     public Transform RightClosetDoor;
     public Transform LeftClosetDoor;
@@ -31,7 +38,14 @@ public class PlayerHidingInCloset : MonoBehaviour
     void Update()
     {
         PlayerInput(CanOpenDoor);
+        if (RunGame)
+        {
+            StartCoroutine(StayingInClosetMiniGame(QTEGameRunTime));
+        }
+    
     }
+    // checks to see if the player wants to go
+    // into the closet
     void PlayerInput(bool Caninteract)
     {
         if (!Caninteract)
@@ -50,6 +64,10 @@ public class PlayerHidingInCloset : MonoBehaviour
             PlayerInsideCloset = true;       
         }
     }
+    /// <summary>
+    /// Moves the player out 
+    /// of the closet
+    /// </summary>
     IEnumerator MovePlayerOut(float MoveAmount)
     {
         float ForwardMovement = MoveAmount;
@@ -61,24 +79,48 @@ public class PlayerHidingInCloset : MonoBehaviour
         }
         PlayerInsideCloset = false;
     }
+    /// <summary>
+    /// Cute little door oprn
+    /// to show its interactable
+    /// </summary>
     IEnumerator OpenDoorSlowly(float AmountToTurnDegrees)
     {
         float turnAmount = AmountToTurnDegrees;
         float change = 0.1f;
         while(turnAmount > 0)
         {
-            turnAmount -= change;
+           turnAmount -= change;
            RightClosetDoor.Rotate(0, -change, 0);
            yield return new WaitForSeconds(.0005f);
         }
         CanOpenDoor = true;
     }
-    IEnumerator StayingInClosetMiniGame()
+    /// <summary>
+    /// Starts and runs the mini game 
+    /// until the player wins, loses, or the
+    /// timer runs out
+    /// </summary>
+    IEnumerator StayingInClosetMiniGame(float RunGameForSeconds)
     {
-        while (true)
-        {
+        RunGame = false;
+        QTEMiniGame.GetComponent<ClosetQTEMiniGame>().enabled = true;
+        QTEMiniGame.GetComponent<ClosetQTEMiniGame>().SetUpTheGame();
 
+        while (RunGameForSeconds > 0)
+        {
+            RunGameForSeconds -= Time.deltaTime;
+            bool FaildGame = QTEMiniGame.GetComponent<ClosetQTEMiniGame>().FailedQTE;
+            bool WinGame = QTEMiniGame.GetComponent <ClosetQTEMiniGame>().enabled;
+            if (FaildGame) {
+                print("You die");
+                break;
+            }
+            if (!WinGame)
+            {
+                print("youWin");
+            }
             yield return null;
         }
+        QTEMiniGame.GetComponent<ClosetQTEMiniGame>().TurnOffAndOnAllObjects(QTEMiniGame, false);
     }
 }
