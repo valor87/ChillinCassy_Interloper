@@ -14,6 +14,7 @@ public class Bookshelf : MonoBehaviour
     {
         eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
         eventCore.unblockBookshelf.AddListener(StopBlocking);
+        eventCore.blockBookshelf.AddListener(StartBlocking);
 
         originalPosition = transform.position;
     }
@@ -32,7 +33,20 @@ public class Bookshelf : MonoBehaviour
 
         print("stopBlocking successful");
         activelyBlocking = false;
+        StopAllCoroutines();
         StartCoroutine(Movement(unblockDestination));
+    }
+
+    void StartBlocking(GameObject bookshelf)
+    {
+        print("test startBlocking");
+        if (bookshelf != gameObject)
+            return;
+
+        print("startBlocking successful");
+        activelyBlocking = true;
+        StopAllCoroutines();
+        StartCoroutine(Movement(originalPosition));
     }
 
     IEnumerator Movement(Vector3 destination)

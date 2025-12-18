@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public GameObject flashlight;
 
+    [Header("Detection")]
+    public float detectionRayLength;
+
     float horizontalInput;
     float verticalInput;
 
@@ -51,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-
+            checkForBookshelf();
         }
     }
 
@@ -87,5 +90,25 @@ public class PlayerController : MonoBehaviour
     {
         print("you died!!!!");
         transform.position = new Vector3(8, 15, 0);
+    }
+
+    void checkForBookshelf()
+    {
+        print("checking for bookshelf");
+        if (Physics.Raycast(transform.position, orientation.forward, out RaycastHit hit, detectionRayLength))
+        {
+            print("hitting: " + hit.collider.name);
+            if (!hit.collider.gameObject.CompareTag("Bookshelf"))
+                return;
+
+            print("bookshelf has been detected");
+            GameObject bookshelf = hit.collider.gameObject;
+
+            if (!bookshelf.GetComponent<Bookshelf>().activelyBlocking)
+                eventCore.blockBookshelf.Invoke(bookshelf);
+        }
+
+
+
     }
 }
