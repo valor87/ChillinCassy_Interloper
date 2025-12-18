@@ -36,7 +36,7 @@ public class PowerBoxScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        EndPos.GetComponent<PowerBoxEndCollsion>().SetPos();
+        EndPos.GetComponent<PowerBoxEndCollsion>().SetPos(transform);
         AllButtons = SetListFromParent(ButtonParent);
         CamPos = transform.position - new Vector3(0, 0, 2f);
         SceneCamera.transform.position = CamPos;
