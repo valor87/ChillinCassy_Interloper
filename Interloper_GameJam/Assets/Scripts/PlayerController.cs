@@ -48,6 +48,11 @@ public class PlayerController : MonoBehaviour
         {
             flashlight.SetActive(!flashlight.activeSelf);
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
+        }
     }
 
     void MovePlayer()
