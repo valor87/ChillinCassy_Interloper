@@ -4,20 +4,40 @@ public class ClosetQTEMiniGame : MonoBehaviour
 {
     public RectTransform PlayerObject;
     public RectTransform FirstCheck;
+    public RectTransform SecondCheck;
     public float Speed;
     Vector3 ChangeplayerPos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ChangeplayerPos = (Vector3.right/2);
+        ChangeplayerPos = (Vector3.right / 2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerObject.position.x >= FirstCheck.position.x - 100 && PlayerObject.position.x <= FirstCheck.position.x + 100)
+        if (FirstCheck != null)
         {
-            print("Hit the button");
+            CheckCollision(FirstCheck);
+
+        }
+        if (SecondCheck != null)
+        {
+            CheckCollision(SecondCheck);
+        }
+        if (SecondCheck == null && FirstCheck == null)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+    void CheckCollision(RectTransform Collison)
+    {
+        if (PlayerObject.position.x >= Collison.position.x - 100 && PlayerObject.position.x <= Collison.position.x + 100)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Destroy(Collison.gameObject);
+            }
         }
         PlayerObject.position -= ChangeplayerPos * Speed;
         if (PlayerObject.position.x <= 100)
