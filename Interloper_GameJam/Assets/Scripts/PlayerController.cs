@@ -7,16 +7,23 @@ public class PlayerController : MonoBehaviour
     public Transform orientation;
     public float groundDrag;
 
+    [Header("References")]
+    public GameObject flashlight;
+
     float horizontalInput;
     float verticalInput;
 
     Vector3 moveDirection;
     Rigidbody rb;
+    EventCore eventCore;
     
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
+        eventCore.death.AddListener(debugRespawn);
     }
 
     void Update()
@@ -35,6 +42,12 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
+        //if right mouse click is pressed, turn on flashlight
+        if (Input.GetMouseButtonDown(1))
+        {
+            flashlight.SetActive(!flashlight.activeSelf);
+        }
     }
 
     void MovePlayer()
@@ -54,5 +67,20 @@ public class PlayerController : MonoBehaviour
             Vector3 limitedVel = currentVel.normalized * moveSpeed;
             rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //checks in the parent (since the object that holds the collider is a child) for the interloper
+        if (collision.gameObject.GetComponentInParent<Interloper>())
+        {
+            eventCore.death.Invoke("Interloper");
+        }
+    }
+
+    void debugRespawn(string causeOfDeath)
+    {
+        print("you died!!!!");
+        transform.position = new Vector3(8, 15, 0);
     }
 }
