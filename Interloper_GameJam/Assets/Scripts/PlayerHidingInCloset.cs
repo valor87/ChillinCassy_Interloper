@@ -73,4 +73,12 @@ public class PlayerHidingInCloset : MonoBehaviour
         }
         CanOpenDoor = true;
     }
+    IEnumerator StayingInClosetMiniGame()
+    {
+        while (true)
+        {
+
+            yield return null;
+        }
+    }
 }
