@@ -1922,4 +1922,4 @@ MonoBehaviour:
   EndPos: {fileID: 6581676488887615331}
   ButtonsLayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 0
