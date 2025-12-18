@@ -3,15 +3,18 @@ using UnityEngine;
 using System.Collections.Generic;
 public class PowerBoxEndCollsion : MonoBehaviour
 {
-    List<Vector3> RandomPos = new List<Vector3>();
+    public List<Vector3> RandomPos = new List<Vector3>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void OnCollisionEnter(Collision collision)
+   
+    private void OnTriggerEnter(Collider other)
     {
         print("You win");
+
     }
-    public void SetPos()
+    public void SetPos(Transform ParentTransform)
     {
         int num = Random.Range(0, RandomPos.Count);
-        transform.position = RandomPos[num];
+        print(num);
+        transform.position = ParentTransform.position + RandomPos[num];
     }
 }
