@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wires
   - IgnorePowerBox
+  - Bookshelf
   layers:
   - Default
   - TransparentFX
