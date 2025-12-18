@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
+    public Transform cameraTransform;
     public float rayLength;
     public LayerMask detectInterloper;
 
@@ -17,12 +18,13 @@ public class Flashlight : MonoBehaviour
     void Update()
     {
         checkForInterloper();
+        Debug.DrawRay(cameraTransform.position, cameraTransform.forward, Color.yellow);
     }
 
     //check if the flashlight is looking at the interloper
     void checkForInterloper()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, rayLength, detectInterloper))
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out RaycastHit hit, rayLength, detectInterloper))
         {
             print("scared away interloper");
             print(hit.collider.gameObject.name);
