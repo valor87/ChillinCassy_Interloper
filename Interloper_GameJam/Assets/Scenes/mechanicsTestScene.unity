@@ -1774,7 +1774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1408776252178074824, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5926993854601601742, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
       propertyPath: m_Name
@@ -1782,7 +1782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5926993854601601742, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6546989605604435996, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
       propertyPath: player
@@ -1877,17 +1877,21 @@ PrefabInstance:
       propertyPath: flashlight
       value: 
       objectReference: {fileID: 1807002035}
+    - target: {fileID: 294791630430889110, guid: 9f5196aa77693de4781f1eb98db68a20, type: 3}
+      propertyPath: detectionRayLength
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3441545133244313928, guid: 9f5196aa77693de4781f1eb98db68a20, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6048108273649074576, guid: 9f5196aa77693de4781f1eb98db68a20, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6048108273649074576, guid: 9f5196aa77693de4781f1eb98db68a20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6048108273649074576, guid: 9f5196aa77693de4781f1eb98db68a20, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2049,7 +2053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5244254711480505411, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
       propertyPath: detectInterloper.m_Bits
-      value: 64
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 6257837105753482829, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
       propertyPath: m_LocalPosition.x

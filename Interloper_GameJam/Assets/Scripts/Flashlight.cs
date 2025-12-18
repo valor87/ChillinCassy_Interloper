@@ -24,7 +24,10 @@ public class Flashlight : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, rayLength, detectInterloper))
         {
-            GameObject interloper = hit.transform.parent.gameObject;
+            print("scared away interloper");
+            print(hit.collider.gameObject.name);
+            //GameObject interloper = hit.transform.parent.gameObject;
+            GameObject interloper = hit.collider.gameObject;
             eventCore.detectedInterloper.Invoke(interloper);
         }
     }

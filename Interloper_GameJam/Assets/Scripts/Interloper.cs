@@ -41,7 +41,6 @@ public class Interloper : MonoBehaviour
     //movement for the interloper. either moves towards player or returns
     void doMovement()
     {
-        
         //move towards player
         if (!returnToPoint)
         {
@@ -70,14 +69,18 @@ public class Interloper : MonoBehaviour
     void determineDetection(GameObject interloper)
     {
         //check if the interloper received is this one since this gets sent to every interloper
-        if (interloper == gameObject)
+        //if (interloper == gameObject)
+        if (interloper.transform.parent == gameObject)
         {
+            
             returnBackToPoint();
         }
+            
     }
 
     public void returnBackToPoint()
     {
+        print("returning back to point");
         returnToPoint = true;
         chosenReturnPoint = returnPoints[Random.Range(0, returnPoints.Length)];
     }
