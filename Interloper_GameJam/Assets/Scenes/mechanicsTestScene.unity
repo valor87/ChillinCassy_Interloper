@@ -559,9 +559,10 @@ GameObject:
   - component: {fileID: 617161932}
   - component: {fileID: 617161931}
   - component: {fileID: 617161930}
+  - component: {fileID: 617161933}
   m_Layer: 0
   m_Name: bookshelf (1)
-  m_TagString: Untagged
+  m_TagString: Bookshelf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,6 +656,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617161928}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &617161933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617161928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7051f2365fa17e5419099034af3b0f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activelyBlocking: 1
+  unblockDestination: {x: 4.75, y: 2.08, z: 18.95}
+  moveSpeed: 10
 --- !u!1 &760071679
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,9 +683,10 @@ GameObject:
   - component: {fileID: 760071683}
   - component: {fileID: 760071682}
   - component: {fileID: 760071681}
+  - component: {fileID: 760071684}
   m_Layer: 0
   m_Name: bookshelf (2)
-  m_TagString: Untagged
+  m_TagString: Bookshelf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -763,6 +780,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760071679}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &760071684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760071679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7051f2365fa17e5419099034af3b0f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activelyBlocking: 1
+  unblockDestination: {x: 15.2, y: 2.08, z: 18.95}
+  moveSpeed: 10
+--- !u!1 &960966341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5926993854601601742, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
+  m_PrefabInstance: {fileID: 2785042191016100487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &960966342
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960966341}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1095796816
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,9 +947,10 @@ GameObject:
   - component: {fileID: 1244520309}
   - component: {fileID: 1244520308}
   - component: {fileID: 1244520307}
+  - component: {fileID: 1244520310}
   m_Layer: 0
   m_Name: bookshelf
-  m_TagString: Untagged
+  m_TagString: Bookshelf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -979,6 +1044,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244520305}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1244520310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244520305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7051f2365fa17e5419099034af3b0f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activelyBlocking: 1
+  unblockDestination: {x: 4.75, y: 2.08, z: -18.95}
+  moveSpeed: 2
 --- !u!1 &1258412488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,9 +1476,10 @@ GameObject:
   - component: {fileID: 2143273554}
   - component: {fileID: 2143273553}
   - component: {fileID: 2143273552}
+  - component: {fileID: 2143273555}
   m_Layer: 0
   m_Name: bookshelf (3)
-  m_TagString: Untagged
+  m_TagString: Bookshelf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1492,6 +1573,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143273550}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2143273555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143273550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7051f2365fa17e5419099034af3b0f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activelyBlocking: 1
+  unblockDestination: {x: 15.2, y: 2.08, z: -19.05}
+  moveSpeed: 10
 --- !u!1001 &2127402301398733899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1567,7 +1663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 894019914191495376, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -45.43
       objectReference: {fileID: 0}
     - target: {fileID: 894019914191495376, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1620,7 +1716,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5926993854601601742, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 960966342}
   m_SourcePrefab: {fileID: 100100000, guid: 7bb88413870c47b40828d7875897bcb3, type: 3}
 --- !u!1001 &3264810049672143903
 PrefabInstance:
