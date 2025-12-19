@@ -185,7 +185,6 @@ public class PlayerHidingInCloset : MonoBehaviour
                     Color newColor = image.color;
                     newColor.a = ((i + 1f) / 5f);
                     image.color = newColor;
-                    hideWarning.transform.GetChild(0).GetComponent<RawImage>().color = image.color;
 
                     delay = 1f / (i + 1);
                     break;
