@@ -13,7 +13,6 @@ public class InterloperSpawner : MonoBehaviour
     public float spawnTimeWindow;
 
     BookshelfOpener bookshelfOpener;
-    GameObject[] bookshelves;
 
     float timer;
     EventCore eventCore;

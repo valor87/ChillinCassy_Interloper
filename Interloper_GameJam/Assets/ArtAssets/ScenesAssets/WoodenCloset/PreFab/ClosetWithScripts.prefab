@@ -342,7 +342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5960452135459065329}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.6791696, z: -0, w: 0.7339814}
+  m_LocalRotation: {x: 0, y: 0.6791723, z: 0, w: 0.7339789}
   m_LocalPosition: {x: 0.185, y: -0.01, z: -2.381}
   m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
   m_ConstrainProportionsScale: 0
@@ -374,6 +374,7 @@ MonoBehaviour:
   PlayerClosetPos: {fileID: 7755087118035893996}
   AjarDoorValue: 25
   PlayerExitAmount: 0.25
+  sanityRecoverRate: 8
   hideWarning: {fileID: 0}
   maxHidingTime: 15
   hidingDecayRate: 0.5

@@ -451,7 +451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2395142788643941299
 Transform:
   m_ObjectHideFlags: 0
@@ -490,6 +490,11 @@ MonoBehaviour:
   PlayerClosetPos: {fileID: 2696951947379508466}
   AjarDoorValue: 25
   PlayerExitAmount: 0.25
+  sanityRecoverRate: 9
+  hideWarning: {fileID: 0}
+  maxHidingTime: 15
+  hidingDecayRate: 0.5
+  hidingTime: 0
 --- !u!65 &7054905572309616832
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -25,16 +25,7 @@ public class EventCore : MonoBehaviour
 
     //event for making fog disappear
     public UnityEvent disableFog;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //event for updating sanity, either increasing or decreasing
+    public UnityEvent<float> updateSanity;
 }

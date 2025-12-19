@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.GetComponentInParent<CryingFace>())
         {
+            eventCore.updateSanity.Invoke(-10);
             Destroy(collision.transform.parent.gameObject);
         }
     }

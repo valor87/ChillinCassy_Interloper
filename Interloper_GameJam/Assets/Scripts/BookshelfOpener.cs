@@ -54,6 +54,7 @@ public class BookshelfOpener : MonoBehaviour
             GameObject bookshelf = tempBookshelves[Random.Range(0, tempBookshelves.Count)];
             if (bookshelf.GetComponent<Bookshelf>().activelyBlocking)
             {
+                eventCore.updateSanity.Invoke(-5);
                 return bookshelf;
             }
             tempBookshelves.Remove(bookshelf);

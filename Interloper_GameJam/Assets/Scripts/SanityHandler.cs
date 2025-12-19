@@ -11,6 +11,7 @@ public class SanityHandler : MonoBehaviour
     void Start()
     {
         eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
+        eventCore.updateSanity.AddListener(changeSanity);
         sanity = 100;
     }
 
@@ -27,5 +28,18 @@ public class SanityHandler : MonoBehaviour
             fogEnabled = false;
             eventCore.disableFog.Invoke();
         }
+    }
+
+    //change the sanity
+    void changeSanity(float value)
+    {
+        print("normal: " + value);
+        print("actual value: " + value);
+        sanity += value;
+
+        if (sanity > 100)
+            sanity = 100;
+        else if (sanity < 0)
+            sanity = 0;
     }
 }

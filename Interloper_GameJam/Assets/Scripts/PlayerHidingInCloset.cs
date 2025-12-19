@@ -22,6 +22,7 @@ public class PlayerHidingInCloset : MonoBehaviour
     Coroutine OpeningDoor;
     [Space(10)]
     [Header("Anti-Hiding Measures")]
+    public float sanityRecoverRate = 9;
     public GameObject hideWarning;
     public float maxHidingTime = 15;
     public float hidingDecayRate = 0.5f;
@@ -32,6 +33,7 @@ public class PlayerHidingInCloset : MonoBehaviour
     bool CanOpenDoor = false;
     bool PlayerInsideCloset; // this name is sorta funny
     EventCore eventCore;
+    SanityHandler sanityHandler;
     private void OnTriggerEnter(Collider other)
     {
         OpeningDoor = StartCoroutine(OpenDoorSlowly(AjarDoorValue));
@@ -49,6 +51,7 @@ public class PlayerHidingInCloset : MonoBehaviour
         LeftDoorRotation = LeftClosetDoor.eulerAngles;
         RightDoorRotation = RightClosetDoor.eulerAngles;
         eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
+        sanityHandler = GameObject.Find("SanityHandler").GetComponent<SanityHandler>();
         OpenedDoor = new Vector3(0,95,0);
     }
 
@@ -156,6 +159,7 @@ public class PlayerHidingInCloset : MonoBehaviour
         {
             hidingTime += Time.deltaTime;
             CanOpenDoor = true;
+            eventCore.updateSanity.Invoke(sanityRecoverRate * Time.deltaTime);
         }
         else
         {
