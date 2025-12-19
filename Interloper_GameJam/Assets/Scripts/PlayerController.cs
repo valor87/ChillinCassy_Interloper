@@ -84,6 +84,10 @@ public class PlayerController : MonoBehaviour
         {
             eventCore.death.Invoke("Interloper");
         }
+        else if (collision.gameObject.GetComponentInParent<StaticMonster>())
+        {
+            Destroy(collision.transform.parent.gameObject);
+        }
     }
 
     void debugRespawn(string causeOfDeath)

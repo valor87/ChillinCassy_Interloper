@@ -19,6 +19,7 @@ public class PlayerHidingInCloset : MonoBehaviour
     public float PlayerExitAmount;
     Vector3 RightDoorRotation;
     Vector3 LeftDoorRotation;
+    Coroutine OpeningDoor;
     [Space(10)]
     [Header("Anti-Hiding Measures")]
     public GameObject hideWarning;
@@ -33,13 +34,14 @@ public class PlayerHidingInCloset : MonoBehaviour
     EventCore eventCore;
     private void OnTriggerEnter(Collider other)
     {
-        
-        StartCoroutine(OpenDoorSlowly(AjarDoorValue));
+        OpeningDoor = StartCoroutine(OpenDoorSlowly(AjarDoorValue));
     }
     private void OnTriggerExit(Collider other)
     {
         RightClosetDoor.eulerAngles = RightDoorRotation;
         LeftClosetDoor.eulerAngles = LeftDoorRotation;
+        StopCoroutine(OpeningDoor);
+        CanOpenDoor = false;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -153,6 +155,7 @@ public class PlayerHidingInCloset : MonoBehaviour
         if (PlayerInsideCloset)
         {
             hidingTime += Time.deltaTime;
+            CanOpenDoor = true;
         }
         else
         {
@@ -191,7 +194,6 @@ public class PlayerHidingInCloset : MonoBehaviour
                     Color newColor = image.color;
                     newColor.a = ((i + 1f) / 5f);
                     image.color = newColor;
-                    hideWarning.transform.GetChild(0).GetComponent<RawImage>().color = image.color;
 
                     delay = 1f / (i + 1);
                     break;
@@ -202,7 +204,6 @@ public class PlayerHidingInCloset : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
             hideWarning.SetActive(false);
             yield return new WaitForSeconds(delay - 0.15f);
-
         }
     }
 
