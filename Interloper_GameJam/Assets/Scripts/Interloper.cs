@@ -74,7 +74,7 @@ public class Interloper : MonoBehaviour
         print(gameObject.name);
         //check if the interloper received is this one since this gets sent to every interloper
         //if (interloper == gameObject)
-        if (interloper.transform.parent.name == gameObject.name)
+        if (interloper.transform.parent.gameObject == gameObject)
         {
             
             returnBackToPoint();
