@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2838828767619590392}
   - component: {fileID: 1639984747962995102}
   m_Layer: 7
-  m_Name: StaticMonsterObj
+  m_Name: CryingFaceObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 861569199435297316}
   - component: {fileID: 1827962767507218302}
   m_Layer: 0
-  m_Name: StaticMonster
+  m_Name: CryingFace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

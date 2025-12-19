@@ -34,10 +34,10 @@ public class Flashlight : MonoBehaviour
                 GameObject interloper = hit.collider.gameObject;
                 eventCore.detectedInterloper.Invoke(interloper);
             }
-            else if (hit.collider.gameObject.GetComponentInParent<StaticMonster>() != null)
+            else if (hit.collider.gameObject.GetComponentInParent<CryingFace>() != null)
             {
-                GameObject staticMonster = hit.transform.parent.gameObject;
-                Destroy(staticMonster);
+                GameObject cryingFace = hit.transform.parent.gameObject;
+                Destroy(cryingFace);
             }
 
         }

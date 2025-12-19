@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class EventCore : MonoBehaviour
 {
     //event for player death.
-    //string is for the cause of death, either by interloper, static monster or dweller (anti-hide measures)
+    //string is for the cause of death, either by interloper, crying face or tickler (anti-hide measures)
     public UnityEvent<string> death;
 
     //event for detecting an interloper with a flashlight.
@@ -18,6 +18,13 @@ public class EventCore : MonoBehaviour
     //event for an interloper moving a bookshelf to block entrance
     //string is for the bookshelf
     public UnityEvent<GameObject> blockBookshelf;
+
+    //event for making fog appear
+    //for future use when dynamic fog is implemented
+    public UnityEvent enableFog;
+
+    //event for making fog disappear
+    public UnityEvent disableFog;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
