@@ -17,6 +17,8 @@ public class PlayerHidingInCloset : MonoBehaviour
     public Transform PlayerClosetPos;
     public float AjarDoorValue;
     public float PlayerExitAmount;
+    Vector3 RightDoorRotation;
+    Vector3 LeftDoorRotation;
     [Space(10)]
     [Header("Anti-Hiding Measures")]
     public GameObject hideWarning;
@@ -31,16 +33,19 @@ public class PlayerHidingInCloset : MonoBehaviour
     EventCore eventCore;
     private void OnTriggerEnter(Collider other)
     {
+        
         StartCoroutine(OpenDoorSlowly(AjarDoorValue));
     }
     private void OnTriggerExit(Collider other)
     {
-        RightClosetDoor.eulerAngles = new Vector3(0,-180,0);
-        LeftClosetDoor.eulerAngles = Vector3.zero;
+        RightClosetDoor.eulerAngles = RightDoorRotation;
+        LeftClosetDoor.eulerAngles = LeftDoorRotation;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        LeftDoorRotation = LeftClosetDoor.eulerAngles;
+        RightDoorRotation = RightClosetDoor.eulerAngles;
         eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
         OpenedDoor = new Vector3(0,95,0);
     }
@@ -48,6 +53,7 @@ public class PlayerHidingInCloset : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(RightDoorRotation);
         PlayerInput(CanOpenDoor);
         if (RunGame)
         {
