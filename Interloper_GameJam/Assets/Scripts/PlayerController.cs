@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
     void debugRespawn(string causeOfDeath)
     {
-        print("you died!!!!");
+        print("you died!!!! cause: " + causeOfDeath);
         transform.position = new Vector3(8, 15, 0);
     }
 

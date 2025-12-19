@@ -6,7 +6,7 @@ public class Interloper : MonoBehaviour
     [Header("References")]
     public NavMeshAgent ai;
     public Transform player;
-    public Transform[] returnPoints;
+    public Transform returnPoint;
 
     [Header("General")]
     public float moveSpeed = 5;
@@ -14,7 +14,6 @@ public class Interloper : MonoBehaviour
 
     EventCore eventCore;
     bool returnToPoint;
-    Transform chosenReturnPoint;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +21,7 @@ public class Interloper : MonoBehaviour
         eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
         eventCore.death.AddListener(debugReset);
         eventCore.detectedInterloper.AddListener(determineDetection);
+        player = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
@@ -51,14 +51,15 @@ public class Interloper : MonoBehaviour
         else
         {
             ai.speed = moveSpeed * 4;
-            ai.destination = chosenReturnPoint.position;
+            ai.destination = returnPoint.position;
 
             Vector3 directionVector = ai.gameObject.transform.position - ai.destination;
             if (directionVector.magnitude < returnDistance)
             {
                 print("return to the damn point");
-                ai.velocity = Vector3.zero;
-                returnToPoint = false;
+                //ai.velocity = Vector3.zero;
+                //returnToPoint = false;
+                Destroy(gameObject);
             }
                 
         }
@@ -68,9 +69,12 @@ public class Interloper : MonoBehaviour
     //check if the interloper has been detected
     void determineDetection(GameObject interloper)
     {
+        print("determining detection");
+        print(interloper.transform.parent.name);
+        print(gameObject.name);
         //check if the interloper received is this one since this gets sent to every interloper
         //if (interloper == gameObject)
-        if (interloper.transform.parent == gameObject)
+        if (interloper.transform.parent.gameObject == gameObject)
         {
             
             returnBackToPoint();
@@ -82,7 +86,7 @@ public class Interloper : MonoBehaviour
     {
         print("returning back to point");
         returnToPoint = true;
-        chosenReturnPoint = returnPoints[Random.Range(0, returnPoints.Length)];
+        //chosenReturnPoint = returnPoints[Random.Range(0, returnPoints.Length)];
     }
 
     private void OnCollisionEnter(Collision collision)

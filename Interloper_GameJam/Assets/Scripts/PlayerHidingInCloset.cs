@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHidingInCloset : MonoBehaviour
 {
@@ -16,9 +17,18 @@ public class PlayerHidingInCloset : MonoBehaviour
     public Transform PlayerClosetPos;
     public float AjarDoorValue;
     public float PlayerExitAmount;
+    [Space(10)]
+    [Header("Anti-Hiding Measures")]
+    public GameObject hideWarning;
+    public float maxHidingTime = 15;
+    public float hidingDecayRate = 0.5f;
+    Coroutine flashCoroutine;
+    bool showingHideWarning;
+    public float hidingTime;
     Vector3 OpenedDoor;
     bool CanOpenDoor = false;
     bool PlayerInsideCloset; // this name is sorta funny
+    EventCore eventCore;
     private void OnTriggerEnter(Collider other)
     {
         StartCoroutine(OpenDoorSlowly(AjarDoorValue));
@@ -31,6 +41,7 @@ public class PlayerHidingInCloset : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
         OpenedDoor = new Vector3(0,95,0);
     }
 
@@ -42,7 +53,8 @@ public class PlayerHidingInCloset : MonoBehaviour
         {
             StartCoroutine(StayingInClosetMiniGame(QTEGameRunTime));
         }
-    
+
+        processAntiHide();
     }
     // checks to see if the player wants to go
     // into the closet
@@ -80,7 +92,7 @@ public class PlayerHidingInCloset : MonoBehaviour
         PlayerInsideCloset = false;
     }
     /// <summary>
-    /// Cute little door oprn
+    /// Cute little door open
     /// to show its interactable
     /// </summary>
     IEnumerator OpenDoorSlowly(float AmountToTurnDegrees)
@@ -123,4 +135,80 @@ public class PlayerHidingInCloset : MonoBehaviour
         }
         QTEMiniGame.GetComponent<ClosetQTEMiniGame>().TurnOffAndOnAllObjects(QTEMiniGame, false);
     }
+
+    //function for incrementing the hide time and deciding whether to show hide warning
+    void processAntiHide()
+    {
+        if ((hidingTime / maxHidingTime) > (10f / 15f) && !showingHideWarning)
+        {
+            flashCoroutine = StartCoroutine(FlashHideWarning());
+        }
+
+        if (PlayerInsideCloset)
+        {
+            hidingTime += Time.deltaTime;
+        }
+        else
+        {
+            if (hidingTime > 0)
+                hidingTime -= Time.deltaTime * hidingDecayRate;
+            else
+                hidingTime = 0;
+
+            stopHideWarning(flashCoroutine);
+        }
+
+        if (hidingTime >= maxHidingTime)
+        {
+            PlayerInsideCloset = false;
+            stopHideWarning(flashCoroutine);
+            eventCore.death.Invoke("Dweller");
+        }
+    }
+
+    //flash the hide warning when player hides for too long
+    IEnumerator FlashHideWarning()
+    {
+        float[] percents = { 10f / 15f, 11f / 15f, 12f / 15f, 13f / 15f, 14f / 15f };
+        float delay = 0.15f;
+        showingHideWarning = true;
+        while (true) 
+        {
+            float currentPercent = hidingTime / maxHidingTime;
+
+            for (int i = 0; i < percents.Length; i++)
+            {
+                if (currentPercent < percents[i])
+                {
+                    //make it more opaque as it flashes more often
+                    RawImage image = hideWarning.transform.GetChild(0).GetComponent<RawImage>();
+                    Color newColor = image.color;
+                    newColor.a = ((i + 1f) / 5f);
+                    image.color = newColor;
+                    hideWarning.transform.GetChild(0).GetComponent<RawImage>().color = image.color;
+
+                    delay = 1f / (i + 1);
+                    break;
+                }
+            }
+
+            hideWarning.SetActive(true);
+            yield return new WaitForSeconds(0.15f);
+            hideWarning.SetActive(false);
+            yield return new WaitForSeconds(delay - 0.15f);
+
+        }
+    }
+
+    void stopHideWarning(Coroutine coroutine)
+    {
+        if (coroutine != null) 
+        {
+            StopCoroutine(coroutine);
+        }
+        
+        hideWarning.SetActive(false);
+        showingHideWarning = false;
+    }
+    
 }

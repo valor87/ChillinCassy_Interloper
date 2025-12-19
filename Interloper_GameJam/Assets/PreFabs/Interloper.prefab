@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 978864615517801203}
   - component: {fileID: 2233204575033011642}
   - component: {fileID: 4407611127794453363}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InterloperObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,6 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 894019914191495376}
   - component: {fileID: 6546989605604435996}
+  - component: {fileID: 7919875549799221937}
   m_Layer: 0
   m_Name: Interloper
   m_TagString: Untagged
@@ -157,7 +158,7 @@ Transform:
   m_GameObject: {fileID: 5926993854601601742}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -178,4 +179,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ai: {fileID: 4407611127794453363}
   player: {fileID: 0}
+  returnPoint: {fileID: 0}
   moveSpeed: 5
+  returnDistance: 5
+--- !u!54 &7919875549799221937
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926993854601601742}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

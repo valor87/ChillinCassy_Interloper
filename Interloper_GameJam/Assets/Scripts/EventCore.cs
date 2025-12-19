@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class EventCore : MonoBehaviour
 {
     //event for player death.
-    //string is for the cause of death, either by interloper, static monster or bed dweller
+    //string is for the cause of death, either by interloper, static monster or dweller (anti-hide measures)
     public UnityEvent<string> death;
 
     //event for detecting an interloper with a flashlight.
