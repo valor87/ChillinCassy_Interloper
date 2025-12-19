@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StaticMonster : MonoBehaviour
+public class CryingFace : MonoBehaviour
 {
     public float killTimer = 20;
     float timer;
@@ -20,7 +20,7 @@ public class StaticMonster : MonoBehaviour
 
         if (timer >= killTimer)
         {
-            eventCore.death.Invoke("StaticMonster");
+            eventCore.death.Invoke("CryingFace");
             timer = 0;
             Destroy(transform.gameObject); 
         }

@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class StaticMonsterSpawner : MonoBehaviour
+public class CryingFaceSpawner : MonoBehaviour
 {
     [Header("References")]
-    public GameObject staticMonsterPrefab;
+    public GameObject cryingFacePrefab;
     [Header("Values")]
-    //percent chance of spawning an static monster. 0-100
+    //percent chance of spawning an crying face. 0-100
     public float spawnFreq;
     //amount of time needed for a bookshelf check to happen. in seconds
     public float spawnTimeWindow;
@@ -31,7 +31,7 @@ public class StaticMonsterSpawner : MonoBehaviour
         }
     }
 
-    //check if a static monster should be spawned by chance
+    //check if a crying face should be spawned by chance
     void SpawnCheck()
     {
         if (Random.Range(1, 101) <= spawnFreq)
@@ -39,8 +39,8 @@ public class StaticMonsterSpawner : MonoBehaviour
             Vector3 spawnPoint = new Vector3(Random.Range(-7, 27), 2.6f, Random.Range(15, -15));
             if (spawnPoint != null)
             {
-                GameObject staticMonsterObj = Instantiate(staticMonsterPrefab, spawnPoint, Quaternion.identity);
-                staticMonsterObj.GetComponent<StaticMonster>().killTimer = 20;
+                GameObject cryingFaceObj = Instantiate(cryingFacePrefab, spawnPoint, Quaternion.identity);
+                cryingFaceObj.GetComponent<CryingFace>().killTimer = 20;
             }
 
         }

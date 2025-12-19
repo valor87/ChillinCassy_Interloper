@@ -171,7 +171,7 @@ public class PlayerHidingInCloset : MonoBehaviour
         {
             PlayerInsideCloset = false;
             stopHideWarning(flashCoroutine);
-            eventCore.death.Invoke("Dweller");
+            eventCore.death.Invoke("Tickler");
         }
     }
 
