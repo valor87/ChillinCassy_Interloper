@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 854948812945820130}
   - component: {fileID: 8837961084008910295}
   - component: {fileID: 2861228790643533153}
+  - component: {fileID: 4592041569170333327}
   m_Layer: 0
   m_Name: InterloperPoint
   m_TagString: Untagged
@@ -345,7 +346,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.88, y: 0.06, z: 0.38}
-  m_LocalScale: {x: 1, y: 0.16, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6485407130247474096}
@@ -422,8 +423,23 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.43, y: 1.31, z: 2.47}
+  m_Center: {x: 0.45, y: 0, z: 0}
+--- !u!114 &4592041569170333327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028993834232449649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43be2dfa9a028a409cf6956d38f2a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closet: {fileID: 1317849389972146356}
+  interlopers: []
+  minigameAlreadyPlayed: 0
 --- !u!1 &5960452135459065329
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,8 +491,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QTEMiniGame: {fileID: 0}
+  InterloperWaitingSpot: {fileID: 4028993834232449649}
   QTEGameRunTime: 6
-  RunGame: 1
+  RunGame: 0
   PlayerCurrentPos: {fileID: 0}
   RightClosetDoor: {fileID: 8006082341690526121}
   LeftClosetDoor: {fileID: 7387498789663786158}
