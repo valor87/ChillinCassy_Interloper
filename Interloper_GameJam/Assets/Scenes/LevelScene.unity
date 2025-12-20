@@ -3098,6 +3098,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4163249478236030947, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: PlayerTransform
+      value: 
+      objectReference: {fileID: 2008130498}
+    - target: {fileID: 4163249478236030947, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
       propertyPath: cryingFacePrefab
       value: 
       objectReference: {fileID: 2069170373300862259, guid: a694aa92418b0dd409e611ae8140632e, type: 3}
