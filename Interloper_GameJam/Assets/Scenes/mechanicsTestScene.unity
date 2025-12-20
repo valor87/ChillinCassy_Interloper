@@ -553,6 +553,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3403600626772319230, guid: 4060960b0dea46746bb15265a0d563a7, type: 3}
   m_PrefabInstance: {fileID: 1894516279}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &968927315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8785954102837020471, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
+  m_PrefabInstance: {fileID: 8959217740075094159}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1047813406
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2068,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 557152951911021450, guid: c11e3ac0f2e12e94bb21dfa1dd58d39d, type: 3}
+      propertyPath: powerEnabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5516790640489967402, guid: c11e3ac0f2e12e94bb21dfa1dd58d39d, type: 3}
       propertyPath: m_Name
       value: PowerHandler
@@ -2454,12 +2463,24 @@ PrefabInstance:
       value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 5244254711480505411, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
+      propertyPath: flashlightObj
+      value: 
+      objectReference: {fileID: 968927315}
+    - target: {fileID: 5244254711480505411, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1807002037}
     - target: {fileID: 5244254711480505411, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
+      propertyPath: batteryRechargeRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244254711480505411, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
       propertyPath: flashMonster.m_Bits
       value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244254711480505411, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
+      propertyPath: batteryLengthSeconds
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5244254711480505411, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
       propertyPath: detectInterloper.m_Bits
@@ -2509,6 +2530,10 @@ PrefabInstance:
       propertyPath: orientation
       value: 
       objectReference: {fileID: 2133126021}
+    - target: {fileID: 8785954102837020471, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
