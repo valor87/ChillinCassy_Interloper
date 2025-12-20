@@ -58,7 +58,7 @@ public class PlayerHidingInCloset : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(RightDoorRotation);
+        //print(RightDoorRotation);
         PlayerInput(CanOpenDoor);
         if (RunGame)
         {
@@ -129,18 +129,20 @@ public class PlayerHidingInCloset : MonoBehaviour
         QTEMiniGame.GetComponent<ClosetQTEMiniGame>().enabled = true;
         QTEMiniGame.GetComponent<ClosetQTEMiniGame>().SetUpTheGame();
 
-        while (RunGameForSeconds > 0)
+        while (true)
         {
             RunGameForSeconds -= Time.deltaTime;
             bool FaildGame = QTEMiniGame.GetComponent<ClosetQTEMiniGame>().FailedQTE;
-            bool WinGame = QTEMiniGame.GetComponent <ClosetQTEMiniGame>().enabled;
-            if (FaildGame) {
+            bool WinGame = !QTEMiniGame.GetComponent<ClosetQTEMiniGame>().enabled;
+            if (FaildGame || RunGameForSeconds <= 0) {
                 print("You die");
+                eventCore.death.Invoke("Tickler");
                 break;
             }
-            if (!WinGame)
+            if (WinGame)
             {
                 print("youWin");
+                break;
             }
             yield return null;
         }

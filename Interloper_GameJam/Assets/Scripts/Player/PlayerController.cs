@@ -99,14 +99,14 @@ public class PlayerController : MonoBehaviour
 
     void checkForBookshelf()
     {
-        print("checking for bookshelf");
+        //print("checking for bookshelf");
         if (Physics.Raycast(transform.position, orientation.forward, out RaycastHit hit, detectionRayLength))
         {
-            print("hitting: " + hit.collider.name);
+            //print("hitting: " + hit.collider.name);
             if (!hit.collider.gameObject.CompareTag("Bookshelf"))
                 return;
 
-            print("bookshelf has been detected");
+            //print("bookshelf has been detected");
             GameObject bookshelf = hit.collider.gameObject;
 
             if (!bookshelf.GetComponent<Bookshelf>().activelyBlocking)

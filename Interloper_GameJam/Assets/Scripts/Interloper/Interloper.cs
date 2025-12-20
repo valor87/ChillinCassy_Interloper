@@ -32,7 +32,7 @@ public class Interloper : MonoBehaviour
 
     void debugReset(string causeOfDeath)
     {
-        print("reset");
+        //print("reset");
         if (causeOfDeath == "Interloper")
             ai.Warp(new Vector3(100, 0, 0));
         
@@ -56,7 +56,7 @@ public class Interloper : MonoBehaviour
             Vector3 directionVector = ai.gameObject.transform.position - ai.destination;
             if (directionVector.magnitude < returnDistance)
             {
-                print("return to the damn point");
+                //print("return to the damn point");
                 //ai.velocity = Vector3.zero;
                 //returnToPoint = false;
                 Destroy(gameObject);
@@ -69,9 +69,9 @@ public class Interloper : MonoBehaviour
     //check if the interloper has been detected
     void determineDetection(GameObject interloper)
     {
-        print("determining detection");
-        print(interloper.transform.parent.name);
-        print(gameObject.name);
+        //print("determining detection");
+        //print(interloper.transform.parent.name);
+        //print(gameObject.name);
         //check if the interloper received is this one since this gets sent to every interloper
         //if (interloper == gameObject)
         if (interloper.transform.parent.gameObject == gameObject)
@@ -84,19 +84,19 @@ public class Interloper : MonoBehaviour
 
     public void returnBackToPoint()
     {
-        print("returning back to point");
+        //print("returning back to point");
         returnToPoint = true;
         //chosenReturnPoint = returnPoints[Random.Range(0, returnPoints.Length)];
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        print("detected something");
-        print(collision.gameObject);
+        //print("detected something");
+        //print(collision.gameObject);
         if (!collision.gameObject.CompareTag("Bookshelf"))
             return;
 
-        print("detected bookshelf");
+        //print("detected bookshelf");
 
         Bookshelf collidedBookshelf = collision.gameObject.GetComponent<Bookshelf>();
 
