@@ -417,6 +417,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 293648733}
     - target: {fileID: 5244254711480505411, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
+      propertyPath: flashlightObj
+      value: 
+      objectReference: {fileID: 1635681990}
+    - target: {fileID: 5244254711480505411, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1377793227}
@@ -2979,6 +2983,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1635681990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8785954102837020471, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
+  m_PrefabInstance: {fileID: 135063102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1636820136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3080,6 +3089,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9da65aea5c8fa740b3aafa91ecef015, type: 3}
+--- !u!1001 &1680260125
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4163249478236030947, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: cryingFacePrefab
+      value: 
+      objectReference: {fileID: 2069170373300862259, guid: a694aa92418b0dd409e611ae8140632e, type: 3}
+    - target: {fileID: 5507165291845710293, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: m_Name
+      value: CryingFaceSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656937088665120617, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656937088665120617, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4166138
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656937088665120617, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656937088665120617, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656937088665120617, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656937088665120617, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656937088665120617, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656937088665120617, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656937088665120617, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656937088665120617, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 530d8f1255746434a9ffca264060d02b, type: 3}
 --- !u!1 &1682566871 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2040254050740271484, guid: cc23efa58b8fbe349ad75d34eeb33c98, type: 3}
@@ -3952,3 +4022,4 @@ SceneRoots:
   - {fileID: 2112102965}
   - {fileID: 1636820136}
   - {fileID: 1778681004}
+  - {fileID: 1680260125}

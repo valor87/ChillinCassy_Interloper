@@ -4,6 +4,7 @@ public class CryingFaceSpawner : MonoBehaviour
 {
     [Header("References")]
     public GameObject cryingFacePrefab;
+    public Transform PlayerTransform;
     [Header("Values")]
     //percent chance of spawning an crying face. 0-100
     public float spawnFreq;
@@ -36,11 +37,12 @@ public class CryingFaceSpawner : MonoBehaviour
     {
         if (Random.Range(1, 101) <= spawnFreq)
         {
-            Vector3 spawnPoint = new Vector3(Random.Range(-7, 27), 2.6f, Random.Range(15, -15));
+            Vector3 spawnPoint = new Vector3(Random.Range(3, -7), 2.6f, Random.Range(15, -13));
             if (spawnPoint != null)
             {
                 GameObject cryingFaceObj = Instantiate(cryingFacePrefab, spawnPoint, Quaternion.identity);
                 cryingFaceObj.GetComponent<CryingFace>().killTimer = 20;
+                cryingFaceObj.GetComponent<CryingFace>().Player = PlayerTransform;
             }
 
         }
