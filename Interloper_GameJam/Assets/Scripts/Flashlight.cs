@@ -18,6 +18,7 @@ public class Flashlight : MonoBehaviour
     void Update()
     {
         checkForMonster();
+        
         Debug.DrawRay(cameraTransform.position, cameraTransform.forward, Color.yellow);
     }
 
