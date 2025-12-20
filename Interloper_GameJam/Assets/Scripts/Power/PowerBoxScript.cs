@@ -6,16 +6,15 @@ using System.Collections.Generic;
 public class PowerBoxScript : MonoBehaviour
 {
     //Set the camera infront of the power box
+    public GameObject PanelDoor;
+    public OpenPanelDoor Op;
+    bool startRepair = false;
+    bool _runrepair = false;
     [Header("Setting Camera Position")]
-    Vector3 CamPos;
-    Vector3 CamRotation;
     public GameObject SceneCamera;
     [Header("For the buttons of the power box")]
     public GameObject NeedleParent;
     public GameObject ButtonParent;
-    GameObject ButtonLeft;
-    GameObject ButtonRight;
-    GameObject ButtonMiddle;
     List<GameObject> AllButtons = new List<GameObject>();
     public Material PressedButtonMaterial;
     public Material UnPressedButtonMaterial;
@@ -38,8 +37,6 @@ public class PowerBoxScript : MonoBehaviour
     {
         EndPos.GetComponent<PowerBoxEndCollsion>().SetPos(transform);
         AllButtons = SetListFromParent(ButtonParent);
-        CamPos = transform.position - new Vector3(0, 0, 2f);
-        SceneCamera.transform.position = CamPos;
         foreach (GameObject _Var in AllButtons)
         {
             _Var.GetComponent<MeshRenderer>().material = UnPressedButtonMaterial;
@@ -49,7 +46,19 @@ public class PowerBoxScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RayCastInteraction();
+        print($"{Op.gameObject.name} has a repair bool of {Op.CanStartRepair}");
+        Op.CanStartRepair = startRepair;
+        if (startRepair)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _runrepair = true;
+            }
+        }
+        if (_runrepair)
+            PanelDoor.SetActive(false);
+            RayCastInteraction();
+
     }
     void RayCastInteraction()
     {

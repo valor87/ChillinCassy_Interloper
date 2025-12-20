@@ -14,7 +14,6 @@ public class PowerBoxEndCollsion : MonoBehaviour
     public void SetPos(Transform ParentTransform)
     {
         int num = Random.Range(0, RandomPos.Count);
-        print(num);
         transform.localPosition = RandomPos[num];
     }
 }
