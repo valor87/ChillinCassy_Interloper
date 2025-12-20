@@ -424,6 +424,14 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1377793227}
+    - target: {fileID: 5244254711480505411, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
+      propertyPath: batteryRechargeRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244254711480505411, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
+      propertyPath: batteryLengthSeconds
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6257837105753482829, guid: 9f36fc866cfe6a74e9d44ab6b77a6541, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
