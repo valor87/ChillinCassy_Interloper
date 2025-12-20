@@ -37,7 +37,7 @@ public class Interloper : MonoBehaviour
     {
         //print("reset");
         if (causeOfDeath == "Interloper")
-            ai.Warp(new Vector3(100, 0, 0));
+            ai.Warp(new Vector3(-31.31787f, -11.91086f, 21.18155f));
         
     }
 
