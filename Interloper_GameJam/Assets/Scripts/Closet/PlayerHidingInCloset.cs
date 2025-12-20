@@ -98,7 +98,7 @@ public class PlayerHidingInCloset : MonoBehaviour
         while (ForwardMovement > 0)
         {
             ForwardMovement -= 0.1f;
-            PlayerCurrentPos.position += (Vector3.back/2);
+            PlayerCurrentPos.position -= (Vector3.right/2);
             yield return new WaitForSeconds(.0005f);
         }
         InterloperWaitingSpot.SetActive(false);
@@ -196,32 +196,13 @@ public class PlayerHidingInCloset : MonoBehaviour
     //flash the hide warning when player hides for too long
     IEnumerator FlashHideWarning()
     {
-        float[] percents = { 10f / 15f, 11f / 15f, 12f / 15f, 13f / 15f, 14f / 15f };
-        float delay = 0.15f;
         showingHideWarning = true;
+
         while (true) 
         {
-            float currentPercent = hidingTime / maxHidingTime;
-
-            for (int i = 0; i < percents.Length; i++)
-            {
-                if (currentPercent < percents[i])
-                {
-                    //make it more opaque as it flashes more often
-                    RawImage image = hideWarning.transform.GetChild(0).GetComponent<RawImage>();
-                    Color newColor = image.color;
-                    newColor.a = ((i + 1f) / 5f);
-                    image.color = newColor;
-
-                    delay = 1f / (i + 1);
-                    break;
-                }
-            }
-
             hideWarning.SetActive(true);
-            yield return new WaitForSeconds(0.15f);
-            hideWarning.SetActive(false);
-            yield return new WaitForSeconds(delay - 0.15f);
+            hideWarning.GetComponent<Animator>().Play("TickleAnim");
+            yield return null;
         }
     }
 
