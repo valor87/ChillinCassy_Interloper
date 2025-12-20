@@ -27,11 +27,11 @@ public class Bookshelf : MonoBehaviour
 
     void StopBlocking(GameObject bookshelf)
     {
-        print("test stopBlocking");
+        //print("test stopBlocking");
         if (bookshelf != gameObject)
             return;
 
-        print("stopBlocking successful");
+        //print("stopBlocking successful");
         activelyBlocking = false;
         StopAllCoroutines();
         StartCoroutine(Movement(unblockDestination));
@@ -39,11 +39,11 @@ public class Bookshelf : MonoBehaviour
 
     void StartBlocking(GameObject bookshelf)
     {
-        print("test startBlocking");
+        //print("test startBlocking");
         if (bookshelf != gameObject)
             return;
 
-        print("startBlocking successful");
+        //print("startBlocking successful");
         activelyBlocking = true;
         StopAllCoroutines();
         StartCoroutine(Movement(originalPosition));
@@ -51,14 +51,14 @@ public class Bookshelf : MonoBehaviour
 
     IEnumerator Movement(Vector3 destination)
     {
-        print("started movement");
+        //print("started movement");
         while (true)
         {
             
             //Vector3.MoveTowards(transform.position, destination, moveSpeed);
             Vector3 directionVector = destination - transform.position;
             transform.position += directionVector.normalized * moveSpeed * 0.1f;
-            print("moving: " + directionVector.magnitude);
+            //print("moving: " + directionVector.magnitude);
             if (directionVector.magnitude < 1)
             {
                 transform.position = destination;

@@ -21,20 +21,18 @@ public class SanityHandler : MonoBehaviour
         if (sanity <= 0 && !fogEnabled)
         {
             fogEnabled = true;
-            eventCore.enableFog.Invoke();
+            eventCore.enableFog.Invoke("sanity");
         }
         else if (sanity > 0 && fogEnabled)
         {
             fogEnabled = false;
-            eventCore.disableFog.Invoke();
+            eventCore.disableFog.Invoke("sanity");
         }
     }
 
     //change the sanity
     void changeSanity(float value)
     {
-        print("normal: " + value);
-        print("actual value: " + value);
         sanity += value;
 
         if (sanity > 100)

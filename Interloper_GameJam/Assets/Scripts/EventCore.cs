@@ -19,13 +19,15 @@ public class EventCore : MonoBehaviour
     //string is for the bookshelf
     public UnityEvent<GameObject> blockBookshelf;
 
+    //event for updating sanity, either increasing or decreasing
+    //float is the amount of value in sanity
+    public UnityEvent<float> updateSanity;
+
     //event for making fog appear
-    //for future use when dynamic fog is implemented
-    public UnityEvent enableFog;
+    //string is for the condition (sanity, power)
+    public UnityEvent<string> enableFog;
 
     //event for making fog disappear
-    public UnityEvent disableFog;
-
-    //event for updating sanity, either increasing or decreasing
-    public UnityEvent<float> updateSanity;
+    //string is for the condition (sanity, power)
+    public UnityEvent<string> disableFog;
 }

@@ -46,7 +46,6 @@ public class BookshelfOpener : MonoBehaviour
     {
         List<GameObject> tempBookshelves = new List<GameObject>(bookshelves);
         
-
         while (tempBookshelves.Count > 0)
         {
             GameObject bookshelf = tempBookshelves[Random.Range(0, tempBookshelves.Count)];
