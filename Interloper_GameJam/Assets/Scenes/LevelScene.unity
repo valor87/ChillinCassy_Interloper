@@ -1018,6 +1018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PanelDoor: {fileID: 5635852419394438609}
   PanelRotationDegrees: 35
+  CanStartRepair: 0
 --- !u!1 &1526294642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,6 +1236,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6222278709154164887, guid: c4d17430531876d4e8a34bbf37a4c248, type: 3}
+      propertyPath: Op
+      value: 
+      objectReference: {fileID: 1464840362}
+    - target: {fileID: 6222278709154164887, guid: c4d17430531876d4e8a34bbf37a4c248, type: 3}
+      propertyPath: PanelDoor
+      value: 
+      objectReference: {fileID: 8969680866173535094}
+    - target: {fileID: 6222278709154164887, guid: c4d17430531876d4e8a34bbf37a4c248, type: 3}
       propertyPath: SceneCamera
       value: 
       objectReference: {fileID: 1377793226}
@@ -1308,6 +1317,11 @@ PrefabInstance:
 --- !u!4 &5635852419394438609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3266178038123690565, guid: c4d17430531876d4e8a34bbf37a4c248, type: 3}
+  m_PrefabInstance: {fileID: 134617038321795402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8969680866173535094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5660247802688896047, guid: c4d17430531876d4e8a34bbf37a4c248, type: 3}
   m_PrefabInstance: {fileID: 134617038321795402}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
