@@ -1,8 +1,8 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Rendering;
-using JetBrains.Annotations;
+
+
 public class PowerBoxScript : MonoBehaviour
 {
     //Set the camera infront of the power box
@@ -42,8 +42,7 @@ public class PowerBoxScript : MonoBehaviour
         SceneCamera.transform.position = CamPos;
         foreach (GameObject _Var in AllButtons)
         {
-            GameObject colorchange = _Var.transform.GetChild(0).gameObject;
-            colorchange.GetComponent<MeshRenderer>().material = UnPressedButtonMaterial;
+            _Var.GetComponent<MeshRenderer>().material = UnPressedButtonMaterial;
         }
     }
 
@@ -59,6 +58,7 @@ public class PowerBoxScript : MonoBehaviour
         Ray MouseRayCast = SceneCamera.GetComponent<Camera>().ScreenPointToRay(MousePos);
         if (Physics.Raycast(MouseRayCast, out RaycastHit Hit, float.MaxValue, ButtonsLayer))
         {
+
             GameObject interactedObject = Hit.transform.gameObject;
             if (Input.GetMouseButtonDown(0))
             {
@@ -76,38 +76,36 @@ public class PowerBoxScript : MonoBehaviour
                     ButtonPressed(interactedObject, NeedleParent, 90);
                 }
             }
+            // the wire is attached to the players mouse
             if (Wire != null)
             {
+                /*
+                 *  this looks like cancer
+                 *  its going to drive me into a tree
+                 */
                 if (interactedObject.transform == GreenWireEnd)
                 {
-                    CheckLineCollison(PinkWire);
+                    // stops the player from touching the green box
+                    GreenWire.GetComponent<BoxCollider>().enabled = false;
+                    PinkWire.GetComponent<BoxCollider>().enabled = true;
+                    // if the pink wire was connected, disconnect it
+                    CheckLineCollison(PinkWire, NeedleParent, GreenRotateAmount);
+                    // move the needle
                     NeedleParent.transform.Rotate(0, 0, -PinkRotateAmount);
                 }
                 else if (interactedObject.transform == PinkWireEnd)
                 {
-                    CheckLineCollison(GreenWire);
+                    // stops the player from touching the pink wire
+                    GreenWire.GetComponent<BoxCollider>().enabled = true;
+                    PinkWire.GetComponent<BoxCollider>().enabled = false;
+                    // if the green wire was connected, disconnect it
+                    CheckLineCollison(GreenWire, NeedleParent, PinkRotateAmount);
+                    // move the needle
                     NeedleParent.transform.Rotate(0, 0, -GreenRotateAmount);
                 }
                 ConnectWireToEndPos(interactedObject, NeedleParent, Hit.point);
             }
-            if (GreenWire.GetComponent<LineRenderer>().GetPosition(1) == GreenWireEnd.position)
-            {
-                GreenWire.GetComponent<BoxCollider>().enabled = false;
-            }
-            else
-            {
-                GreenWire.GetComponent<BoxCollider>().enabled = true;
-            }
-            if (PinkWire.GetComponent<LineRenderer>().GetPosition(1) == PinkWireEnd.position)
-            {
-                PinkWire.GetComponent<BoxCollider>().enabled = false;
-            }
-            else
-            {
-
-                PinkWire.GetComponent<BoxCollider>().enabled = true;
-
-            }
+         
         }
     }
     void WireDrag(GameObject MoveableWire, GameObject Destination, Vector3 MousePos)
@@ -130,17 +128,20 @@ public class PowerBoxScript : MonoBehaviour
         }
         Vector3 WireMousePos = RaycastPosition;
         Wire.GetComponent<LineRenderer>().SetPosition(1, WireMousePos);
+
         if (WireDes == Wire.transform.GetChild(0).gameObject)
         {
             Wire.GetComponent<LineRenderer>().SetPosition(1, WireDes.transform.position);
-            NeedlePiviot.transform.Rotate(0, 0, DialChangeInDegrees);
+            
 
             Wire = null;
         }
     }
-    void CheckLineCollison(GameObject TurnOffWire)
+    void CheckLineCollison(GameObject TurnOffWire, GameObject NeedlePiviot, float RevertNeedleAmount)
     {
-        TurnOffWire.GetComponent<LineRenderer>().SetPosition(1, TurnOffWire.transform.position);
+        NeedlePiviot.transform.Rotate(0, 0, RevertNeedleAmount);
+        Vector3 LineCastFirstPos = TurnOffWire.GetComponent<LineRenderer>().GetPosition(0);
+        TurnOffWire.GetComponent<LineRenderer>().SetPosition(1, LineCastFirstPos);
     }
     void ButtonPressed(GameObject Button, GameObject NeedlePivot, float RotateInDegrees)
     {
@@ -149,11 +150,11 @@ public class PowerBoxScript : MonoBehaviour
         if (currentmaterial.name == "Maroon (Instance)")
         {
             Button.GetComponent<MeshRenderer>().material = UnPressedButtonMaterial;
-            NeedleParent.transform.Rotate(0, 0, -RotateInDegrees);
+            NeedleParent.transform.Rotate(0,0, -RotateInDegrees);
             return;
         }
         Button.GetComponent<MeshRenderer>().material = PressedButtonMaterial;
-        NeedleParent.transform.Rotate(0, 0, RotateInDegrees);
+        NeedleParent.transform.Rotate(0,0, RotateInDegrees);
     }
 
     static List<GameObject> SetListFromParent(GameObject Parent)

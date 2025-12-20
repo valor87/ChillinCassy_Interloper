@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5772184450144674166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1154831872894747519}
+  m_Layer: 0
+  m_Name: ButtonParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1154831872894747519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5772184450144674166}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6094926964871840143}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5989574977603479140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52,6 +83,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 286859c55e17fd24a820f34a52ef1889, type: 2}
+    - target: {fileID: -4417837955555959808, guid: b906ece68dd10b649a2d00aa6ccefaab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1743283706748947182, guid: b906ece68dd10b649a2d00aa6ccefaab, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -62,6 +97,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b906ece68dd10b649a2d00aa6ccefaab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1154831872894747519}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b906ece68dd10b649a2d00aa6ccefaab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 362720979097098606}
   m_SourcePrefab: {fileID: 100100000, guid: b906ece68dd10b649a2d00aa6ccefaab, type: 3}
+--- !u!4 &6094926964871840143 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b906ece68dd10b649a2d00aa6ccefaab, type: 3}
+  m_PrefabInstance: {fileID: 5989574977603479140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6908054969125083957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b906ece68dd10b649a2d00aa6ccefaab, type: 3}
+  m_PrefabInstance: {fileID: 5989574977603479140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &362720979097098606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6908054969125083957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b517e0389ad0c9744b063d12aa5d8431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneCamera: {fileID: 0}
+  NeedleParent: {fileID: 0}
+  ButtonParent: {fileID: 0}
+  PressedButtonMaterial: {fileID: 2100000, guid: 0579fdfe8e083744abe97a48314532aa, type: 2}
+  UnPressedButtonMaterial: {fileID: 2100000, guid: 5d5afdaa76ad40349a0e4aae44bd3a0a, type: 2}
+  PinkWire: {fileID: 0}
+  GreenWire: {fileID: 0}
+  PinkWireEnd: {fileID: 0}
+  GreenWireEnd: {fileID: 0}
+  GreenRotateAmount: 220
+  PinkRotateAmount: 110
+  EndPos: {fileID: 0}
+  ButtonsLayer:
+    serializedVersion: 2
+    m_Bits: 4096
