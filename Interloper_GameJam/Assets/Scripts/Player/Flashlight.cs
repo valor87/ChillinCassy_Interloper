@@ -31,14 +31,15 @@ public class Flashlight : MonoBehaviour
             CheckForMonster();
             ChangeBattery(-1);
             flashlightObj.SetActive(true);
+            GetComponent<Collider>().enabled = true;
         }
         else
         {
             ChangeBattery(batteryRechargeRate);
             flashlightObj.SetActive(false);
+            GetComponent<Collider>().enabled = false;
         }
 
-        
         Debug.DrawRay(cameraTransform.position, cameraTransform.forward, Color.yellow);
     }
 

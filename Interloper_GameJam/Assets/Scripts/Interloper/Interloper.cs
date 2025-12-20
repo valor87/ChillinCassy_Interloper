@@ -12,10 +12,12 @@ public class Interloper : MonoBehaviour
     [Header("General")]
     public float moveSpeed = 5;
     public float returnDistance = 5;
+    public float interloperAutoKill = 20;
 
     EventCore eventCore;
     public bool returnToPoint;
     bool playerInCloset;
+    float autoKillTimer;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +46,8 @@ public class Interloper : MonoBehaviour
     //movement for the interloper. either moves towards player or returns
     void doMovement()
     {
+        autoKillTimer = Time.deltaTime;
+        
         if (playerInCloset)
         {
             ai.speed = moveSpeed * 0.5f;
@@ -63,7 +67,7 @@ public class Interloper : MonoBehaviour
             ai.destination = returnPoint.position;
 
             Vector3 directionVector = ai.gameObject.transform.position - ai.destination;
-            if (directionVector.magnitude < returnDistance)
+            if (directionVector.magnitude < returnDistance || autoKillTimer > interloperAutoKill)
             {
                 //print("return to the damn point");
                 //ai.velocity = Vector3.zero;

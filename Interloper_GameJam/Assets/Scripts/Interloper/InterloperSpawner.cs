@@ -7,6 +7,7 @@ public class InterloperSpawner : MonoBehaviour
     public GameObject interloperPrefab;
     public GameObject[] spawnPoints;
     public GameObject hidingSpot; //for checking if the player is hiding. this should be the InterloperPoint in the closet
+    public FogHandler fogHandler;
     [Header("Values")]
     //percent chance of spawning an interloper. 0-100
     public float spawnFreq;
@@ -40,12 +41,20 @@ public class InterloperSpawner : MonoBehaviour
     //check if a interloper should be spawned by chance
     void SpawnCheck()
     {
+        bool allowedToSpawn;
+
+        if (!fogHandler.fogEnabled && transform.childCount > 0)
+            allowedToSpawn = false;
+        else
+            allowedToSpawn = true;
+        
         if (Random.Range(1, 101) <= spawnFreq)
         {
             Transform spawnPoint = PickSpawnPoint();
-            if (spawnPoint != null)
+            if (spawnPoint != null && allowedToSpawn)
             {
                 GameObject interloperObj = Instantiate(interloperPrefab, spawnPoint.position, Quaternion.identity);
+                interloperObj.transform.parent = transform;
                 interloperObj.GetComponent<Interloper>().interloperSpot = hidingSpot;
                 interloperObj.GetComponent<Interloper>().returnPoint = spawnPoint;
             }

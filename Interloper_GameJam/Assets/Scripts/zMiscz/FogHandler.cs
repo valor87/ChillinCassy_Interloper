@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class FogHandler : MonoBehaviour
 {
+    public bool fogEnabled;
     public ParticleSystem fog;
     public Flashlight flashlight;
 
@@ -40,6 +41,7 @@ public class FogHandler : MonoBehaviour
 
         if (noSanity || noPower)
         {
+            fogEnabled = true;
             fog.Play();
             flashlight.rayLength /= 2;
         }
@@ -58,6 +60,7 @@ public class FogHandler : MonoBehaviour
 
         if (!noSanity && !noPower)
         {
+            fogEnabled = false;
             fog.Stop();
             flashlight.rayLength *= 2;
         }
