@@ -9,7 +9,8 @@ public class PowerBoxScript : MonoBehaviour
     public GameObject PanelDoor;
     public OpenPanelDoor Op;
     bool startRepair = false;
-    bool _runrepair = false;
+    [HideInInspector]
+    public bool runrepair = false;
     [Header("Setting Camera Position")]
     public GameObject SceneCamera;
     [Header("For the buttons of the power box")]
@@ -46,16 +47,19 @@ public class PowerBoxScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print($"{Op.gameObject.name} has a repair bool of {Op.CanStartRepair}");
-        Op.CanStartRepair = startRepair;
+        startRepair = Op.CanStartRepair;
         if (startRepair)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                _runrepair = true;
+                runrepair = true;
             }
         }
-        if (_runrepair)
+        else
+        {
+            runrepair = false;
+        }
+        if (runrepair)
             PanelDoor.SetActive(false);
             RayCastInteraction();
 
@@ -92,7 +96,7 @@ public class PowerBoxScript : MonoBehaviour
                  *  this looks like cancer
                  *  its going to drive me into a tree
                  */
-                if (interactedObject.transform == GreenWireEnd)
+                if (interactedObject == GreenWireEnd.gameObject && Wire == GreenWire)
                 {
                     // stops the player from touching the green box
                     GreenWire.GetComponent<BoxCollider>().enabled = false;
@@ -102,7 +106,7 @@ public class PowerBoxScript : MonoBehaviour
                     // move the needle
                     NeedleParent.transform.Rotate(0, 0, -PinkRotateAmount);
                 }
-                else if (interactedObject.transform == PinkWireEnd)
+                else if (interactedObject == PinkWireEnd.gameObject && Wire == PinkWire)
                 {
                     // stops the player from touching the pink wire
                     GreenWire.GetComponent<BoxCollider>().enabled = true;
