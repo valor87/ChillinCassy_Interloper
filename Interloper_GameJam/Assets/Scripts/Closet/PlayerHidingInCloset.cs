@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PlayerHidingInCloset : MonoBehaviour
 {
     [Header("For Closet MiniGame")]
     public GameObject QTEMiniGame;
-    [Range(2, 10)]
+    public GameObject InterloperWaitingSpot;
+    [UnityEngine.Range(2, 10)]
     public int QTEGameRunTime;
     public bool RunGame;
     [Space(10)]
@@ -31,9 +33,8 @@ public class PlayerHidingInCloset : MonoBehaviour
     public float hidingTime;
     Vector3 OpenedDoor;
     bool CanOpenDoor = false;
-    bool PlayerInsideCloset; // this name is sorta funny
+    public bool PlayerInsideCloset; // this name is sorta funny
     EventCore eventCore;
-    SanityHandler sanityHandler;
     private void OnTriggerEnter(Collider other)
     {
         OpeningDoor = StartCoroutine(OpenDoorSlowly(AjarDoorValue));
@@ -51,7 +52,6 @@ public class PlayerHidingInCloset : MonoBehaviour
         LeftDoorRotation = LeftClosetDoor.eulerAngles;
         RightDoorRotation = RightClosetDoor.eulerAngles;
         eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
-        sanityHandler = GameObject.Find("SanityHandler").GetComponent<SanityHandler>();
         OpenedDoor = new Vector3(0,95,0);
     }
 
@@ -84,6 +84,7 @@ public class PlayerHidingInCloset : MonoBehaviour
             LeftClosetDoor.eulerAngles = OpenedDoor;
             RightClosetDoor.eulerAngles = OpenedDoor;
             PlayerCurrentPos.position = PlayerClosetPos.position;
+            InterloperWaitingSpot.SetActive(true);
             PlayerInsideCloset = true;       
         }
     }
@@ -100,6 +101,7 @@ public class PlayerHidingInCloset : MonoBehaviour
             PlayerCurrentPos.position += (Vector3.back/2);
             yield return new WaitForSeconds(.0005f);
         }
+        InterloperWaitingSpot.SetActive(false);
         PlayerInsideCloset = false;
     }
     /// <summary>
@@ -146,6 +148,16 @@ public class PlayerHidingInCloset : MonoBehaviour
             }
             yield return null;
         }
+
+        List<GameObject> interlopers = InterloperWaitingSpot.GetComponent<MinigameStarter>().interlopers;
+        for (int i = 0; i < interlopers.Count; i++)
+        {
+            GameObject interloper = interlopers[i];
+            interloper.GetComponent<Interloper>().returnBackToPoint();
+        }
+        interlopers.Clear();
+        InterloperWaitingSpot.GetComponent<MinigameStarter>().minigameAlreadyPlayed = false;
+        InterloperWaitingSpot.gameObject.SetActive(false);
         QTEMiniGame.GetComponent<ClosetQTEMiniGame>().TurnOffAndOnAllObjects(QTEMiniGame, false);
     }
 

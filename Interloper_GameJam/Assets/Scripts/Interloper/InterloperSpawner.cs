@@ -6,6 +6,7 @@ public class InterloperSpawner : MonoBehaviour
     [Header("References")]
     public GameObject interloperPrefab;
     public GameObject[] spawnPoints;
+    public GameObject hidingSpot; //for checking if the player is hiding. this should be the InterloperPoint in the closet
     [Header("Values")]
     //percent chance of spawning an interloper. 0-100
     public float spawnFreq;
@@ -45,9 +46,9 @@ public class InterloperSpawner : MonoBehaviour
             if (spawnPoint != null)
             {
                 GameObject interloperObj = Instantiate(interloperPrefab, spawnPoint.position, Quaternion.identity);
+                interloperObj.GetComponent<Interloper>().interloperSpot = hidingSpot;
                 interloperObj.GetComponent<Interloper>().returnPoint = spawnPoint;
             }
-                
         }
     }
 

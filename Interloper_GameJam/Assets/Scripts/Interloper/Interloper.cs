@@ -7,13 +7,15 @@ public class Interloper : MonoBehaviour
     public NavMeshAgent ai;
     public Transform player;
     public Transform returnPoint;
+    public GameObject interloperSpot;
 
     [Header("General")]
     public float moveSpeed = 5;
     public float returnDistance = 5;
 
     EventCore eventCore;
-    bool returnToPoint;
+    public bool returnToPoint;
+    bool playerInCloset;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +24,7 @@ public class Interloper : MonoBehaviour
         eventCore.death.AddListener(debugReset);
         eventCore.detectedInterloper.AddListener(determineDetection);
         player = GameObject.Find("Player").transform;
+        playerInCloset = interloperSpot.transform.parent.GetComponent<PlayerHidingInCloset>().PlayerInsideCloset;
     }
 
     // Update is called once per frame
@@ -41,14 +44,20 @@ public class Interloper : MonoBehaviour
     //movement for the interloper. either moves towards player or returns
     void doMovement()
     {
+        if (playerInCloset)
+        {
+            ai.speed = moveSpeed * 0.5f;
+            ai.destination = interloperSpot.transform.position;
+        }
         //move towards player
-        if (!returnToPoint)
+        else if (!returnToPoint)
         {
             ai.speed = moveSpeed;
             ai.destination = player.position;
         }
+
         //return to a point
-        else
+        if (returnToPoint)
         {
             ai.speed = moveSpeed * 4;
             ai.destination = returnPoint.position;
@@ -61,9 +70,7 @@ public class Interloper : MonoBehaviour
                 //returnToPoint = false;
                 Destroy(gameObject);
             }
-                
         }
-
     }
 
     //check if the interloper has been detected
