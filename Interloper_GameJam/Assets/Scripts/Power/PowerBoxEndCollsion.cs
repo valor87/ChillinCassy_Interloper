@@ -3,13 +3,14 @@ using UnityEngine;
 using System.Collections.Generic;
 public class PowerBoxEndCollsion : MonoBehaviour
 {
+    public PowerBoxScript PowerBoxScript;
     public List<Vector3> RandomPos = new List<Vector3>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    
     private void OnTriggerEnter(Collider other)
     {
         print("You win");
-
+        PowerBoxScript.runrepair = false;
     }
     public void SetPos(Transform ParentTransform)
     {

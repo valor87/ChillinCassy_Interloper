@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class OpenPanelDoor : MonoBehaviour
 {
+    
     public Transform PanelDoor;
     Vector3 StartPos;
     public float PanelRotationDegrees;
@@ -18,6 +19,8 @@ public class OpenPanelDoor : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         PanelDoor.eulerAngles = StartPos;
+        PanelDoor.gameObject.SetActive(true);
+        CanStartRepair = false;
     }
     IEnumerator OpenDoorSlowly(float AmountToTurnDegrees)
     {
@@ -30,5 +33,6 @@ public class OpenPanelDoor : MonoBehaviour
             yield return new WaitForSeconds(.0005f);
         }
         CanStartRepair = true;
+        print("Door is open");
     }
 }
