@@ -49,7 +49,9 @@ public class PlayerController : MonoBehaviour
         //if right mouse click is pressed, turn on flashlight
         if (Input.GetMouseButtonDown(1))
         {
-            flashlight.SetActive(!flashlight.activeSelf);
+            bool flashlightEnabled = flashlight.GetComponent<Flashlight>().flashlightEnabled;
+            flashlight.GetComponent<Flashlight>().flashlightEnabled = !flashlightEnabled;
+            print(!flashlightEnabled);
         }
 
         if (Input.GetMouseButtonDown(0))

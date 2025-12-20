@@ -2,28 +2,48 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
+    public bool flashlightEnabled;
+    [Header("References")]
     public Transform cameraTransform;
-    public float rayLength;
+    public GameObject flashlightObj;
     public LayerMask flashMonster;
+    [Header("Values")]
+    public float rayLength;
+    public float batteryLengthSeconds; //length in seconds
+    public float batteryRechargeRate;
 
+    bool flashlightExhaustion;
+    float batteryAmount;
     EventCore eventCore;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
+        batteryAmount = batteryLengthSeconds;
     }
 
     // Update is called once per frame
     void Update()
     {
-        checkForMonster();
+        if (flashlightEnabled && !flashlightExhaustion)
+        {
+            CheckForMonster();
+            ChangeBattery(-1);
+            flashlightObj.SetActive(true);
+        }
+        else
+        {
+            ChangeBattery(batteryRechargeRate);
+            flashlightObj.SetActive(false);
+        }
+
         
         Debug.DrawRay(cameraTransform.position, cameraTransform.forward, Color.yellow);
     }
 
     //check if the flashlight is looking at the interloper or static monster
-    void checkForMonster()
+    void CheckForMonster()
     {
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out RaycastHit hit, rayLength, flashMonster))
         {
@@ -41,6 +61,24 @@ public class Flashlight : MonoBehaviour
                 Destroy(cryingFace);
             }
 
+        }
+    }
+
+    void ChangeBattery(float rate)
+    {
+        batteryAmount += Time.deltaTime * rate;
+        print("battery: " + batteryAmount);
+
+        if (batteryAmount > batteryLengthSeconds)
+        {
+            batteryAmount = batteryLengthSeconds;
+            flashlightExhaustion = false;
+        }
+        else if (batteryAmount < 0)
+        {
+            flashlightEnabled = false;
+            flashlightExhaustion = true;
+            batteryAmount = 0;
         }
     }
 }
