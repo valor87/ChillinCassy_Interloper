@@ -112,8 +112,5 @@ public class PlayerController : MonoBehaviour
             if (!bookshelf.GetComponent<Bookshelf>().activelyBlocking)
                 eventCore.blockBookshelf.Invoke(bookshelf);
         }
-
-
-
     }
 }
