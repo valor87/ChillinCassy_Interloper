@@ -27,15 +27,15 @@ public class PowerHandler : MonoBehaviour
 
         if (timer > powerBreakTimeWindow)
         {
-            PowerBreakCheck();
+            PowerBreakCheck(false);
             timer = 0;
         }
     }
 
     //check if a interloper should be spawned by chance
-    void PowerBreakCheck()
+    public void PowerBreakCheck(bool forceBreak)
     {
-        if (Random.Range(1, 101) <= powerBreakFreq)
+        if (Random.Range(1, 101) <= powerBreakFreq || forceBreak)
         {
             powerEnabled = false;
             eventCore.enableFog.Invoke("power");

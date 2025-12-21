@@ -25,15 +25,15 @@ public class BookshelfOpener : MonoBehaviour
 
         if (timer > timeWindow)
         {
-            BookshelfCheck();
+            BookshelfCheck(true);
             timer = 0;
         }
     }
 
     //check if a bookshelf should be opened by chance
-    void BookshelfCheck()
+    public void BookshelfCheck(bool forceUnblock)
     {
-        if (Random.Range(1, 101) <= openFreq)
+        if (Random.Range(1, 101) <= openFreq || forceUnblock)
         {
             GameObject bookshelf = PickBookshelf();
             if (bookshelf != null)

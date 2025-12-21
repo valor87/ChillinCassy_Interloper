@@ -10,6 +10,8 @@ public class CryingFaceSpawner : MonoBehaviour
     public float spawnFreq;
     //amount of time needed for a bookshelf check to happen. in seconds
     public float spawnTimeWindow;
+    public Vector3 lowerSpawnBound;
+    public Vector3 upperSpawnBound;
 
     float timer;
     EventCore eventCore;
@@ -37,14 +39,27 @@ public class CryingFaceSpawner : MonoBehaviour
     {
         if (Random.Range(1, 101) <= spawnFreq)
         {
-            Vector3 spawnPoint = new Vector3(Random.Range(3, -7), 2.6f, Random.Range(15, -13));
-            if (spawnPoint != null)
-            {
-                GameObject cryingFaceObj = Instantiate(cryingFacePrefab, spawnPoint, Quaternion.identity);
-                cryingFaceObj.GetComponent<CryingFace>().killTimer = 20;
-                cryingFaceObj.GetComponent<CryingFace>().Player = PlayerTransform;
-            }
+            SpawnCryingFace();
+        }
+    }
 
+    public void SpawnCryingFace()
+    {
+        Vector3 spawnPoint;
+        if (lowerSpawnBound != null && upperSpawnBound != null) 
+        {
+            spawnPoint = new Vector3(Random.Range(lowerSpawnBound.x, upperSpawnBound.x), Random.Range(lowerSpawnBound.y, upperSpawnBound.y), Random.Range(lowerSpawnBound.z, upperSpawnBound.z));
+        }
+        else
+        {
+            spawnPoint = new Vector3(Random.Range(3, -7), 2.6f, Random.Range(15, -13));
+        }
+        
+        if (spawnPoint != null)
+        {
+            GameObject cryingFaceObj = Instantiate(cryingFacePrefab, spawnPoint, Quaternion.identity);
+            cryingFaceObj.GetComponent<CryingFace>().killTimer = 20;
+            cryingFaceObj.GetComponent<CryingFace>().Player = PlayerTransform;
         }
     }
 }

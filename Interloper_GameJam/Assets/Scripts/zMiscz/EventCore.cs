@@ -30,4 +30,7 @@ public class EventCore : MonoBehaviour
     //event for making fog disappear
     //string is for the condition (sanity, power)
     public UnityEvent<string> disableFog;
+
+    //event for winning game
+    public UnityEvent winGame;
 }
