@@ -25,7 +25,7 @@ public class FogHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     void EnablingFog(string condition)

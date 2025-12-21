@@ -33,17 +33,38 @@ public class PowerBoxScript : MonoBehaviour
     // Getting and setting the mouse position
     public LayerMask ButtonsLayer;
     Vector3 MousePos;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Transform NeedleStartTransform;
+    EventCore eventcore;
     void Start()
     {
-        EndPos.GetComponent<PowerBoxEndCollsion>().SetPos(transform);
+        NeedleStartTransform = NeedleParent.transform;
+        eventcore = GameObject.Find("EventCore").GetComponent<EventCore>();
+        eventcore.disableFog.AddListener(resetDial);
         AllButtons = SetListFromParent(ButtonParent);
         foreach (GameObject _Var in AllButtons)
         {
             _Var.GetComponent<MeshRenderer>().material = UnPressedButtonMaterial;
         }
     }
+    void resetDial(string cause)
+    {
+        if (cause == "power")
+        {
+            PanelDoor.SetActive(true);
+            NeedleParent.transform.localEulerAngles = new Vector3(0,180,270);
+            GreenWire.GetComponent<LineRenderer>().SetPosition(0, Vector3.zero);
+            PinkWire.GetComponent<LineRenderer>().SetPosition(0, Vector3.zero);
+            GreenWire.GetComponent<LineRenderer>().SetPosition(1, Vector3.zero);
+            PinkWire.GetComponent<LineRenderer>().SetPosition(1, Vector3.zero);
 
+            GreenWire.GetComponent<BoxCollider>().enabled = true;
+            PinkWire.GetComponent<BoxCollider>().enabled = true;
+            foreach (GameObject _Var in AllButtons)
+            {
+                _Var.GetComponent<MeshRenderer>().material = UnPressedButtonMaterial;
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {

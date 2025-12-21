@@ -68,7 +68,6 @@ public class Flashlight : MonoBehaviour
     void ChangeBattery(float rate)
     {
         batteryAmount += Time.deltaTime * rate;
-        print("battery: " + batteryAmount);
 
         if (batteryAmount > batteryLengthSeconds)
         {
