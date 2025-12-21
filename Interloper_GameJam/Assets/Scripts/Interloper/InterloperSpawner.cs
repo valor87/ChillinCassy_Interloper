@@ -41,23 +41,28 @@ public class InterloperSpawner : MonoBehaviour
     //check if a interloper should be spawned by chance
     void SpawnCheck()
     {
+        if (Random.Range(1, 101) <= spawnFreq)
+        {
+            spawnInterloper(false);
+        }
+    }
+
+    void spawnInterloper(bool forceAllow)
+    {
         bool allowedToSpawn;
 
-        if (!fogHandler.fogEnabled && transform.childCount > 0)
+        if ((!fogHandler.fogEnabled && transform.childCount > 0) || forceAllow)
             allowedToSpawn = false;
         else
             allowedToSpawn = true;
-        
-        if (Random.Range(1, 101) <= spawnFreq)
+
+        Transform spawnPoint = PickSpawnPoint();
+        if (spawnPoint != null && allowedToSpawn)
         {
-            Transform spawnPoint = PickSpawnPoint();
-            if (spawnPoint != null && allowedToSpawn)
-            {
-                GameObject interloperObj = Instantiate(interloperPrefab, spawnPoint.position, Quaternion.identity);
-                interloperObj.transform.parent = transform;
-                interloperObj.GetComponent<Interloper>().interloperSpot = hidingSpot;
-                interloperObj.GetComponent<Interloper>().returnPoint = spawnPoint;
-            }
+            GameObject interloperObj = Instantiate(interloperPrefab, spawnPoint.position, Quaternion.identity);
+            interloperObj.transform.parent = transform;
+            interloperObj.GetComponent<Interloper>().interloperSpot = hidingSpot;
+            interloperObj.GetComponent<Interloper>().returnPoint = spawnPoint;
         }
     }
 

@@ -157,7 +157,7 @@ public class PlayerHidingInCloset : MonoBehaviour
         }
         interlopers.Clear();
         InterloperWaitingSpot.GetComponent<MinigameStarter>().minigameAlreadyPlayed = false;
-        InterloperWaitingSpot.gameObject.SetActive(false);
+        //InterloperWaitingSpot.gameObject.SetActive(false);
         QTEMiniGame.GetComponent<ClosetQTEMiniGame>().TurnOffAndOnAllObjects(QTEMiniGame, false);
     }
 

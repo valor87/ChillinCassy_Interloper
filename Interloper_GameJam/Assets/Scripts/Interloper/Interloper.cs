@@ -39,7 +39,7 @@ public class Interloper : MonoBehaviour
     {
         //print("reset");
         if (causeOfDeath == "Interloper")
-            ai.Warp(new Vector3(-31.31787f, -11.91086f, 21.18155f));
+            ai.Warp(new Vector3(-31, -12, 21));
         
     }
 
@@ -83,14 +83,13 @@ public class Interloper : MonoBehaviour
         //print("determining detection");
         //print(interloper.transform.parent.name);
         //print(gameObject.name);
+
         //check if the interloper received is this one since this gets sent to every interloper
         //if (interloper == gameObject)
-        if (interloper.transform.parent.gameObject == gameObject)
+        if (interloper.transform.parent.gameObject == gameObject && !playerInCloset)
         {
-            
             returnBackToPoint();
-        }
-            
+        } 
     }
 
     public void returnBackToPoint()

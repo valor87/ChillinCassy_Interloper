@@ -3,6 +3,7 @@ using UnityEngine;
 public class SanityHandler : MonoBehaviour
 {
     public float sanity;
+    public float sanityDecreaseRate = 0.5f;
 
     bool fogEnabled;
     EventCore eventCore;
@@ -28,6 +29,11 @@ public class SanityHandler : MonoBehaviour
             fogEnabled = false;
             eventCore.disableFog.Invoke("sanity");
         }
+    }
+
+    private void LateUpdate()
+    {
+        changeSanity(Time.deltaTime * -sanityDecreaseRate);
     }
 
     //change the sanity
