@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     public GameObject flashlight;
+    public FogHandler fogHandler;
 
     [Header("Detection")]
     public float detectionRayLength;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirection;
     Rigidbody rb;
     EventCore eventCore;
+    float originalSpeed;
     
     void Start()
     {
@@ -27,12 +29,14 @@ public class PlayerController : MonoBehaviour
 
         eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
         eventCore.death.AddListener(debugRespawn);
+        originalSpeed = moveSpeed;
     }
 
     void Update()
     {
         GetInput();
         SpeedControl();
+        ChangePlayerSpeed();
         rb.linearDamping = groundDrag; 
     }
 
@@ -76,6 +80,19 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 limitedVel = currentVel.normalized * moveSpeed;
             rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
+        }
+    }
+
+    //if no sanity and no power, player moves more slower
+    void ChangePlayerSpeed()
+    {
+        if (!fogHandler.CheckBothConditions())
+        {
+            moveSpeed = originalSpeed;
+        }
+        else
+        {
+            moveSpeed = originalSpeed / 2;
         }
     }
 

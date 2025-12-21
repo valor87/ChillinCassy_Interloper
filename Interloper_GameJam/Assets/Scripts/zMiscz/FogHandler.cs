@@ -65,4 +65,10 @@ public class FogHandler : MonoBehaviour
             flashlight.rayLength *= 2;
         }
     }
+
+    //for slowing down the player if no sanity and power
+    public bool CheckBothConditions()
+    {
+        return noSanity && noPower;
+    }
 }

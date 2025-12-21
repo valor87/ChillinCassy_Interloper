@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [Header("Values")]
     public int gameLength = 300; //in seconds
     //based on how much bookshelves are open, sanity will decrease faster passively. this affects the strength of that penalty
-    public int bookshelfSanityPenalty; 
+    public float bookshelfSanityPenalty; 
     
     InterloperSpawner interloperSpawner;
     CryingFaceSpawner cryingFaceSpawner;
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     EventCore eventCore;
 
-    int gameTimer;
+    public int gameTimer;
 
     Coroutine game;
     
@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
                 bookshelfOpener.BookshelfCheck(true);
                 bookshelfOpener.BookshelfCheck(true);
 
-                bookshelfSanityPenalty *= 2;
+                bookshelfSanityPenalty *= 1.5f;
 
                 powerHandler.powerBreakFreq = 75;
                 powerHandler.powerBreakTimeWindow = 35;
@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
                 print("game timer: " + gameTimer);
                 powerHandler.PowerBreakCheck(true);
 
-                interloperSpawner.spawnFreq = 80;
+                interloperSpawner.spawnFreq = 60;
                 interloperSpawner.spawnTimeWindow = 7;
             }
             //max out spawn rate of crying face while spacing it out
@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
                 cryingFaceSpawner.spawnTimeWindow = 9;
 
                 bookshelfOpener.openFreq = 100;
-                bookshelfOpener.timeWindow = 7;
+                bookshelfOpener.timeWindow = 6;
             }
 
             yield return new WaitForSeconds(1);

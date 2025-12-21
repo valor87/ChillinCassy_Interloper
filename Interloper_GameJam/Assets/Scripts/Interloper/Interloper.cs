@@ -26,13 +26,14 @@ public class Interloper : MonoBehaviour
         eventCore.death.AddListener(debugReset);
         eventCore.detectedInterloper.AddListener(determineDetection);
         player = GameObject.Find("Player").transform;
-        playerInCloset = interloperSpot.transform.parent.GetComponent<PlayerHidingInCloset>().PlayerInsideCloset;
     }
 
     // Update is called once per frame
     void Update()
     {
         doMovement();
+        //band-aid fix for interlopers getting attracted to closet
+        playerInCloset = interloperSpot.transform.parent.GetComponent<PlayerHidingInCloset>().PlayerInsideCloset;
     }
 
     void debugReset(string causeOfDeath)
