@@ -51,7 +51,7 @@ public class PowerBoxScript : MonoBehaviour
         if (cause == "power")
         {
             PanelDoor.SetActive(true);
-            NeedleParent.transform.localEulerAngles = new Vector3(0,180,270);
+            NeedleParent.transform.localEulerAngles = new Vector3(0,0, -90);
             GreenWire.GetComponent<LineRenderer>().SetPosition(0, Vector3.zero);
             PinkWire.GetComponent<LineRenderer>().SetPosition(0, Vector3.zero);
             GreenWire.GetComponent<LineRenderer>().SetPosition(1, Vector3.zero);
@@ -125,7 +125,7 @@ public class PowerBoxScript : MonoBehaviour
                     // if the pink wire was connected, disconnect it
                     CheckLineCollison(PinkWire, NeedleParent, GreenRotateAmount);
                     // move the needle
-                    NeedleParent.transform.Rotate(0, 0, -PinkRotateAmount);
+                    NeedleParent.transform.Rotate(0, -PinkRotateAmount, 0);
                 }
                 else if (interactedObject == PinkWireEnd.gameObject && Wire == PinkWire)
                 {
@@ -135,7 +135,7 @@ public class PowerBoxScript : MonoBehaviour
                     // if the green wire was connected, disconnect it
                     CheckLineCollison(GreenWire, NeedleParent, PinkRotateAmount);
                     // move the needle
-                    NeedleParent.transform.Rotate(0, 0, -GreenRotateAmount);
+                    NeedleParent.transform.Rotate(0, -GreenRotateAmount, 0);
                 }
                 ConnectWireToEndPos(interactedObject, NeedleParent, Hit.point);
             }
@@ -173,7 +173,7 @@ public class PowerBoxScript : MonoBehaviour
     }
     void CheckLineCollison(GameObject TurnOffWire, GameObject NeedlePiviot, float RevertNeedleAmount)
     {
-        NeedlePiviot.transform.Rotate(0, 0, RevertNeedleAmount);
+        NeedlePiviot.transform.Rotate(0, RevertNeedleAmount, 0);
         Vector3 LineCastFirstPos = TurnOffWire.GetComponent<LineRenderer>().GetPosition(0);
         TurnOffWire.GetComponent<LineRenderer>().SetPosition(1, LineCastFirstPos);
     }
@@ -184,11 +184,11 @@ public class PowerBoxScript : MonoBehaviour
         if (currentmaterial.name == "Maroon (Instance)")
         {
             Button.GetComponent<MeshRenderer>().material = UnPressedButtonMaterial;
-            NeedleParent.transform.Rotate(0,0, -RotateInDegrees);
+            NeedleParent.transform.Rotate(0, -RotateInDegrees, 0);
             return;
         }
         Button.GetComponent<MeshRenderer>().material = PressedButtonMaterial;
-        NeedleParent.transform.Rotate(0,0, RotateInDegrees);
+        NeedleParent.transform.Rotate(0, RotateInDegrees, 0);
     }
 
     static List<GameObject> SetListFromParent(GameObject Parent)
