@@ -46,7 +46,7 @@ public class CryingFaceSpawner : MonoBehaviour
     public void SpawnCryingFace()
     {
         Vector3 spawnPoint;
-        if (lowerSpawnBound != null && upperSpawnBound != null) 
+        if (lowerSpawnBound != Vector3.zero && upperSpawnBound != Vector3.zero) 
         {
             spawnPoint = new Vector3(Random.Range(lowerSpawnBound.x, upperSpawnBound.x), Random.Range(lowerSpawnBound.y, upperSpawnBound.y), Random.Range(lowerSpawnBound.z, upperSpawnBound.z));
         }
@@ -58,6 +58,7 @@ public class CryingFaceSpawner : MonoBehaviour
         if (spawnPoint != null)
         {
             GameObject cryingFaceObj = Instantiate(cryingFacePrefab, spawnPoint, Quaternion.identity);
+            cryingFaceObj.transform.parent = transform;
             cryingFaceObj.GetComponent<CryingFace>().killTimer = 20;
             cryingFaceObj.GetComponent<CryingFace>().Player = PlayerTransform;
         }
