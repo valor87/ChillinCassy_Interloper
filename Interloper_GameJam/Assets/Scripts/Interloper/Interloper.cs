@@ -43,7 +43,11 @@ public class Interloper : MonoBehaviour
             ai.Warp(new Vector3(-31, -12, 21));
         
     }
+    //
+    void PlayJumpScare()
+    {
 
+    }
     //movement for the interloper. either moves towards player or returns
     void doMovement()
     {
