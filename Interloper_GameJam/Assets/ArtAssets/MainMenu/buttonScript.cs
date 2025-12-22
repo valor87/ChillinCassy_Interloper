@@ -1,4 +1,3 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +13,6 @@ public class buttonScript : MonoBehaviour
     public void PlayGame()
     {
         //game scene
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("LevelScene");
     }
 }

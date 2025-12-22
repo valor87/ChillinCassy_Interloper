@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator ItFoundYouAnim()
     {
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("TitleScene");
     }
     void checkForBookshelf()
     {
