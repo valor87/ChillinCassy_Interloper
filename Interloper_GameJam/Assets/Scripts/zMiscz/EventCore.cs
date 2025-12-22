@@ -32,5 +32,7 @@ public class EventCore : MonoBehaviour
     public UnityEvent<string> disableFog;
 
     //event for winning game
+    public UnityEvent loseGame;
+
     public UnityEvent winGame;
 }

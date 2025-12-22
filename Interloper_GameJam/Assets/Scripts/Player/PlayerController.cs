@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public GameObject flashlight;
     public FogHandler fogHandler;
-
+    public GameObject DeathScreen;
     [Header("Detection")]
     public float detectionRayLength;
 
@@ -28,12 +30,16 @@ public class PlayerController : MonoBehaviour
         rb.freezeRotation = true;
 
         eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
-        eventCore.death.AddListener(debugRespawn);
+        eventCore.loseGame.AddListener(debugRespawn);
         originalSpeed = moveSpeed;
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            eventCore.loseGame.Invoke();
+        }
         GetInput();
         SpeedControl();
         ChangePlayerSpeed();
@@ -110,12 +116,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void debugRespawn(string causeOfDeath)
+    void debugRespawn()
     {
-        print("you died!!!! cause: " + causeOfDeath);
+        print("you dead");
+        DeathScreen.SetActive(true);
+        DeathScreen.GetComponent<Animator>().SetBool("DeathScene", true);
         transform.position = new Vector3(8, 15, 0);
+        StartCoroutine(ItFoundYouAnim());
     }
-
+    IEnumerator ItFoundYouAnim()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(1);
+    }
     void checkForBookshelf()
     {
         print("checking for bookshelf");

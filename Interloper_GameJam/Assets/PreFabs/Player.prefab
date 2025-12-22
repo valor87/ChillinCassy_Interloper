@@ -161,6 +161,9 @@ MonoBehaviour:
   moveSpeed: 10
   orientation: {fileID: 3778707701606762220}
   groundDrag: 10
+  flashlight: {fileID: 0}
+  fogHandler: {fileID: 0}
+  detectionRayLength: 5
 --- !u!54 &2612469762078701233
 Rigidbody:
   m_ObjectHideFlags: 0

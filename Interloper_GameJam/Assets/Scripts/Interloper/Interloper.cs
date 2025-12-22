@@ -39,15 +39,11 @@ public class Interloper : MonoBehaviour
     void debugReset(string causeOfDeath)
     {
         //print("reset");
-        if (causeOfDeath == "Interloper")
-            ai.Warp(new Vector3(-31, -12, 21));
-        
+        //if (causeOfDeath == "Interloper")
+        //    ai.Warp(new Vector3(-31, -12, 21));
+        Destroy(this.gameObject);
     }
-    //
-    void PlayJumpScare()
-    {
-
-    }
+  
     //movement for the interloper. either moves towards player or returns
     void doMovement()
     {
