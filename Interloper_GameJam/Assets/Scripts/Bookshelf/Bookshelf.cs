@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class Bookshelf : MonoBehaviour
 {
+    public SoundManager SoundManager;
+    public AudioClip ShelfMoveing;
     public bool activelyBlocking;
     public Vector3 unblockDestination;
     public float moveSpeed;
@@ -51,6 +54,7 @@ public class Bookshelf : MonoBehaviour
 
     IEnumerator Movement(Vector3 destination)
     {
+        SoundManager.PLayOneShot(ShelfMoveing);
         //print("started movement");
         while (true)
         {
@@ -64,7 +68,7 @@ public class Bookshelf : MonoBehaviour
                 transform.position = destination;
                 break;
             }
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.05f);
         }
         
     } 

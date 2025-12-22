@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(AudioSource))]
 public class PlayerHidingInCloset : MonoBehaviour
 {
     [Header("For Closet MiniGame")]
@@ -35,9 +36,14 @@ public class PlayerHidingInCloset : MonoBehaviour
     bool CanOpenDoor = false;
     public bool PlayerInsideCloset; // this name is sorta funny
     EventCore eventCore;
+    [Space(10)]
+    [Header("SoundEffects")]
+    public AudioClip HeatBeat;
+    AudioSource AS;
     private void OnTriggerEnter(Collider other)
     {
         OpeningDoor = StartCoroutine(OpenDoorSlowly(AjarDoorValue));
+        AS = GetComponent<AudioSource>();
     }
     private void OnTriggerExit(Collider other)
     {
@@ -200,6 +206,7 @@ public class PlayerHidingInCloset : MonoBehaviour
 
         while (true) 
         {
+            AS.PlayOneShot(HeatBeat);
             hideWarning.SetActive(true);
             hideWarning.GetComponent<Animator>().Play("TickleAnim");
             yield return null;
@@ -210,9 +217,9 @@ public class PlayerHidingInCloset : MonoBehaviour
     {
         if (coroutine != null) 
         {
+            AS.Stop();
             StopCoroutine(coroutine);
         }
-        
         hideWarning.SetActive(false);
         showingHideWarning = false;
     }

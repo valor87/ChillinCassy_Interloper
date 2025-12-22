@@ -6,12 +6,13 @@ public class CryingFace : MonoBehaviour
     public Transform Player;
     public float killTimer = 20;
     float timer;
-
+    public AudioClip CryingAmbiance;
     EventCore eventCore;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GetComponent<AudioSource>().PlayOneShot(CryingAmbiance);
         eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
     }
 
@@ -19,7 +20,6 @@ public class CryingFace : MonoBehaviour
     void Update()
     {
         LookAtPlayer(Player);
-
         timer += Time.deltaTime;
 
         if (timer >= killTimer)

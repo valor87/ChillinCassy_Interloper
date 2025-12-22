@@ -15,7 +15,7 @@ public class Flashlight : MonoBehaviour
     bool flashlightExhaustion;
     float batteryAmount;
     EventCore eventCore;
-    
+  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +28,7 @@ public class Flashlight : MonoBehaviour
     {
         if (flashlightEnabled && !flashlightExhaustion)
         {
+
             CheckForMonster();
             ChangeBattery(-1);
             flashlightObj.SetActive(true);

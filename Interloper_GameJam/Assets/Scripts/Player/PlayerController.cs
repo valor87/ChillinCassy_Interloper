@@ -23,7 +23,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     EventCore eventCore;
     float originalSpeed;
-    
+    [Header("SoundEffects")]
+    public SoundManager soundManager;
+    public AudioClip Flashlightclick;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -59,8 +61,14 @@ public class PlayerController : MonoBehaviour
         //if right mouse click is pressed, turn on flashlight
         if (Input.GetMouseButtonDown(1))
         {
+           
             bool flashlightEnabled = flashlight.GetComponent<Flashlight>().flashlightEnabled;
+            
             flashlight.GetComponent<Flashlight>().flashlightEnabled = !flashlightEnabled;
+            if (!flashlightEnabled)
+            {
+                soundManager.PLayOneShot(Flashlightclick);
+            }
             print(!flashlightEnabled);
         }
 

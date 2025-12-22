@@ -3,7 +3,9 @@ using UnityEngine;
 public class PowerHandler : MonoBehaviour
 {
     public bool powerEnabled;
-    
+    [Header("References")]
+    public AudioClip PowerDown;
+    AudioSource AS;
     [Header("Values")]
     //percent chance of power breaking
     public float powerBreakFreq;
@@ -18,6 +20,7 @@ public class PowerHandler : MonoBehaviour
     {
         powerEnabled = true;
         eventCore = GameObject.Find("EventCore").GetComponent<EventCore>();
+        AS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class PowerHandler : MonoBehaviour
     {
         if (Random.Range(1, 101) <= powerBreakFreq || forceBreak)
         {
+            AS.PlayOneShot(PowerDown);
             powerEnabled = false;
             eventCore.enableFog.Invoke("power");
         }

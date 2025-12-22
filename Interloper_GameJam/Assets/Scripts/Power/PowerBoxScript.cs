@@ -2,7 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 
-
+[RequireComponent(typeof(AudioSource))]
 public class PowerBoxScript : MonoBehaviour
 {
     //Set the camera infront of the power box
@@ -35,8 +35,13 @@ public class PowerBoxScript : MonoBehaviour
     Vector3 MousePos;
     Transform NeedleStartTransform;
     EventCore eventcore;
+    [Space(10)]
+    [Header("Manageing Sound")]
+    public List<AudioClip> ButtonClicks;
+    AudioSource AS;
     void Start()
     {
+        AS = GetComponent<AudioSource>();
         NeedleStartTransform = NeedleParent.transform;
         eventcore = GameObject.Find("EventCore").GetComponent<EventCore>();
         eventcore.disableFog.AddListener(resetDial);
@@ -179,8 +184,8 @@ public class PowerBoxScript : MonoBehaviour
     }
     void ButtonPressed(GameObject Button, GameObject NeedlePivot, float RotateInDegrees)
     {
+        AS.PlayOneShot(ButtonClicks[Random.RandomRange(0, ButtonClicks.Count)]);
         Material currentmaterial = Button.GetComponent<MeshRenderer>().material;
-        print(currentmaterial.name);
         if (currentmaterial.name == "Maroon (Instance)")
         {
             Button.GetComponent<MeshRenderer>().material = UnPressedButtonMaterial;
