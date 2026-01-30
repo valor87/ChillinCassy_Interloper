@@ -3,6 +3,11 @@ using UnityEngine.Events;
 
 public class EventCore : MonoBehaviour
 {
+    private void Start()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+    }
     //event for player death.
     //string is for the cause of death, either by interloper, crying face or tickler (anti-hide measures)
     public UnityEvent<string> death;
