@@ -16,10 +16,10 @@ public class ClosetQTEMiniGame : MonoBehaviour
         ChangeplayerPos = Vector3.right * 5;
         FailedQTE = false;
         Vector3 RandomX = FirstCheck.position;
-        RandomX.x = Random.RandomRange(100, 1800);
+        RandomX.x = Random.Range(100, 1800);
         FirstCheck.position = RandomX;
         RandomX = SecondCheck.position;
-        RandomX.x = Random.RandomRange(100, 1800);
+        RandomX.x = Random.Range(100, 1800);
         SecondCheck.position = RandomX;
     }
 
@@ -71,10 +71,10 @@ public class ClosetQTEMiniGame : MonoBehaviour
         ChangeplayerPos = Vector3.right * 5;
 
         Vector3 RandomX = FirstCheck.position;
-        RandomX.x = Random.RandomRange(100, 1800);
+        RandomX.x = Random.Range(100, 1800);
         FirstCheck.position = RandomX;
         RandomX = SecondCheck.position;
-        RandomX.x = Random.RandomRange(100, 1800);
+        RandomX.x = Random.Range(100, 1800);
         SecondCheck.position = RandomX;
     }
     // switches the visablity of the children

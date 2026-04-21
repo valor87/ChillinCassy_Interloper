@@ -184,7 +184,7 @@ public class PowerBoxScript : MonoBehaviour
     }
     void ButtonPressed(GameObject Button, GameObject NeedlePivot, float RotateInDegrees)
     {
-        AS.PlayOneShot(ButtonClicks[Random.RandomRange(0, ButtonClicks.Count)]);
+        AS.PlayOneShot(ButtonClicks[Random.Range(0, ButtonClicks.Count)]);
         Material currentmaterial = Button.GetComponent<MeshRenderer>().material;
         if (currentmaterial.name == "Maroon (Instance)")
         {

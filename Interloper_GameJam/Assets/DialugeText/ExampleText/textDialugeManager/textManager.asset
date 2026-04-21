@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f7b8e9e0d1b3544a5e74cc41a539bd, type: 3}
+  m_Name: textManager
+  m_EditorClassIdentifier: Assembly-CSharp::textDisplayManager
+  textDialogues:
+  - {fileID: 11400000, guid: b69091782823a634abb6fbd18403e91e, type: 2}
+  - {fileID: 11400000, guid: 23a4a4b2498f5b54887ac48048d5ba14, type: 2}
+  - {fileID: 11400000, guid: 5b383801da2d9ae448ce73aaabfa3834, type: 2}
+  - {fileID: 11400000, guid: d932ed04884b537429c9525e5eff145f, type: 2}

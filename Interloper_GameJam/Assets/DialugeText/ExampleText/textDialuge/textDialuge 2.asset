@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d3fe0d1ca0cbd14db5b24d03651a90f, type: 3}
+  m_Name: textDialuge 2
+  m_EditorClassIdentifier: Assembly-CSharp::textDialogue
+  textName: Name of Dialogue
+  nameOfSpeaker: big Bill
+  Dialague: Oh yeah, talking about the text writer, you use this for how you want
+    the text to be displayed; those aspects can be edited in the inspector of the
+    text writer game object.
