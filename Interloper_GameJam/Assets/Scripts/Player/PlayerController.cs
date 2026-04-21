@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -115,7 +116,11 @@ public class PlayerController : MonoBehaviour
         //checks in the parent (since the object that holds the collider is a child) for the interloper
         if (collision.gameObject.GetComponentInParent<Interloper>())
         {
-            eventCore.death.Invoke("Interloper");
+            Interloper interloper = collision.gameObject.GetComponentInParent<Interloper>();
+            //makes it so that the interloper will not kill you if it's already running away
+            if (!interloper.returnToPoint)
+                eventCore.death.Invoke("Interloper");
+            
         }
         else if (collision.gameObject.GetComponentInParent<CryingFace>())
         {
