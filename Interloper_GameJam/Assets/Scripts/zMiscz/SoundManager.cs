@@ -5,6 +5,7 @@ public class SoundManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     EventCore eventcore;
+    public Settings settings;
     public AudioClip InterloperKillSound;
     AudioSource AS;
     void Start()
@@ -12,6 +13,7 @@ public class SoundManager : MonoBehaviour
         eventcore = GameObject.Find("EventCore").GetComponent<EventCore>();
         eventcore.death.AddListener(deathSound);
         AS = GetComponent<AudioSource>();
+        AS.volume = settings.ambienceVolume;
     }
 
     // Update is called once per frame
@@ -19,9 +21,10 @@ public class SoundManager : MonoBehaviour
     {
         
     }
+
     public void PLayOneShot(AudioClip AC)
     {
-        AS.PlayOneShot(AC);
+        AS.PlayOneShot(AC, settings.sfxVolume);
     }
     void deathSound(string cause)
     {
