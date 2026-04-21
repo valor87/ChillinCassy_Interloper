@@ -10,13 +10,13 @@ public class PlayerCam : MonoBehaviour
 
     float xRotation;
     float yRotation;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
        //hide and lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        GameObject.Find("EventCore").GetComponent<EventCore>().EV_cameraAnimationEnd.AddListener(returnCameraToPlayer);
     }
 
     // Update is called once per frame
@@ -32,5 +32,10 @@ public class PlayerCam : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    void returnCameraToPlayer()
+    {
+        transform.localPosition = Vector3.zero;
     }
 }

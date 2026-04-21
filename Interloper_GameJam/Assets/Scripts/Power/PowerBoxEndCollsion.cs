@@ -19,9 +19,13 @@ public class PowerBoxEndCollsion : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (isIntroPuzzle)
+            EventCore.EV_openGate.Invoke();
+
         print("you win");
         SwitchCollison(false);
         EventCore.disableFog.Invoke("power");
+        
         PowerBoxScript.runrepair = false;
     }
 
