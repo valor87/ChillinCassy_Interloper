@@ -49,10 +49,15 @@ MonoBehaviour:
   ai: {fileID: 4503194210403880231}
   player: {fileID: 0}
   returnPoint: {fileID: 0}
+  houseEscapePoint: {fileID: 0}
   interloperSpot: {fileID: 0}
+  bookshelfList: []
+  animator: {fileID: 6677093321381698437}
   moveSpeed: 5
   returnDistance: 5
+  interloperAutoKill: 20
   returnToPoint: 0
+  allBookshelvesCovered: 0
 --- !u!54 &7919875549799221937
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -374,5 +379,10 @@ BoxCollider:
 --- !u!4 &5254338603810042912 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3724181551576256082, guid: 49992c72f7f82004180ab32c2ed71e3b, type: 3}
+  m_PrefabInstance: {fileID: 8882746068945353330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6677093321381698437 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2876699015564157431, guid: 49992c72f7f82004180ab32c2ed71e3b, type: 3}
   m_PrefabInstance: {fileID: 8882746068945353330}
   m_PrefabAsset: {fileID: 0}

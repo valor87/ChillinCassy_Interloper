@@ -19,6 +19,8 @@ public class Bookshelf : MonoBehaviour
         eventCore.unblockBookshelf.AddListener(StopBlocking);
         eventCore.blockBookshelf.AddListener(StartBlocking);
 
+        //eventCore.
+
         originalPosition = transform.position;
     }
 

@@ -8,6 +8,8 @@ public class InterloperSpawner : MonoBehaviour
     public GameObject[] spawnPoints;
     public GameObject hidingSpot; //for checking if the player is hiding. this should be the InterloperPoint in the closet
     public FogHandler fogHandler;
+    public Transform houseEscapePoint;
+    public List<Bookshelf> bookshelfList;
     [Header("Values")]
     //percent chance of spawning an interloper. 0-100
     public float spawnFreq;
@@ -63,6 +65,8 @@ public class InterloperSpawner : MonoBehaviour
             interloperObj.transform.parent = transform;
             interloperObj.GetComponent<Interloper>().interloperSpot = hidingSpot;
             interloperObj.GetComponent<Interloper>().returnPoint = spawnPoint;
+            interloperObj.GetComponent<Interloper>().houseEscapePoint = houseEscapePoint;
+            interloperObj.GetComponent<Interloper>().bookshelfList = bookshelfList;
         }
     }
 
