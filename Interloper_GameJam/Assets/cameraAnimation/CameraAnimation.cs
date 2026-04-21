@@ -68,6 +68,9 @@ public class CameraAnimation : MonoBehaviour
             Debug.LogError("The animation curve is empty, add in a curve");
             this.enabled = false;
         }
+
+        if (cameraAni.playOnStart)
+            startCameraMovement();
     }
 
     /// <summary>
@@ -106,8 +109,6 @@ public class CameraAnimation : MonoBehaviour
         if (cameraFade.fadeIn)
             yield return fadeEffect(true, false, 255);
 
-        if (cameraShakeAmount != 0)
-            //StartCoroutine(cameraShake());
         corutineRunning = true;
         float timeTaken = 0;
         Vector3 pos = camTransform.position;
