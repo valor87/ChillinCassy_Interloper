@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: textManager
   m_EditorClassIdentifier: Assembly-CSharp::textDisplayManager
   textDialogues:
-  - {fileID: 11400000, guid: b69091782823a634abb6fbd18403e91e, type: 2}
-  - {fileID: 11400000, guid: 23a4a4b2498f5b54887ac48048d5ba14, type: 2}
-  - {fileID: 11400000, guid: 5b383801da2d9ae448ce73aaabfa3834, type: 2}
-  - {fileID: 11400000, guid: d932ed04884b537429c9525e5eff145f, type: 2}
+  - {fileID: 11400000, guid: 3b9ac0087c97ca64fa1d9242f7c501b8, type: 2}
+  - {fileID: 11400000, guid: 4492e1dc0a462e245bef4dc522ddc5be, type: 2}
+  - {fileID: 11400000, guid: faca91fb62e4dc4469cfaf72d7b19954, type: 2}
