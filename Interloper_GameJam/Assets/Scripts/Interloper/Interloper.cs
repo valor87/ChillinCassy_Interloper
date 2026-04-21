@@ -122,7 +122,7 @@ public class Interloper : MonoBehaviour
                     ai.enabled = false;
                     rb.useGravity = false;
                     //swap interloper's animation to climbing the wall here
-                    //animator.play(crawling)
+                    //animator.play("crawling")
                 }
             }
 
@@ -186,6 +186,25 @@ public class Interloper : MonoBehaviour
             eventCore.blockBookshelf.Invoke(collision.gameObject);
         else
             eventCore.unblockBookshelf.Invoke(collision.gameObject);
+
+        returnBackToPoint();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //print("detected something");
+        //print(collision.gameObject);
+        if (!other.gameObject.CompareTag("Bookshelf"))
+            return;
+
+        //print("detected bookshelf");
+
+        Bookshelf collidedBookshelf = other.gameObject.GetComponent<Bookshelf>();
+
+        if (!collidedBookshelf.activelyBlocking)
+            eventCore.blockBookshelf.Invoke(other.gameObject);
+        else
+            eventCore.unblockBookshelf.Invoke(other.gameObject);
 
         returnBackToPoint();
     }

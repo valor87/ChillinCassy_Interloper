@@ -5959,6 +5959,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6700325088322929183, guid: 17c2797ce82010f4e83f2e0c25e409b6, type: 3}
+      propertyPath: bookshelfList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700325088322929183, guid: 17c2797ce82010f4e83f2e0c25e409b6, type: 3}
       propertyPath: 'bookshelves.Array.data[0]'
       value: 
       objectReference: {fileID: 2504683276802522773}
@@ -5974,6 +5978,14 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[1]'
       value: 
       objectReference: {fileID: 1430710133}
+    - target: {fileID: 6700325088322929183, guid: 17c2797ce82010f4e83f2e0c25e409b6, type: 3}
+      propertyPath: 'bookshelfList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3641513206808249851}
+    - target: {fileID: 6700325088322929183, guid: 17c2797ce82010f4e83f2e0c25e409b6, type: 3}
+      propertyPath: 'bookshelfList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1254422250}
     - target: {fileID: 7679761984072463925, guid: 17c2797ce82010f4e83f2e0c25e409b6, type: 3}
       propertyPath: m_Name
       value: InterloperSpawner
