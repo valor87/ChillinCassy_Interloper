@@ -8,10 +8,6 @@ public class EventCore : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
     }
-    //event for opening the gate in the intro
-    [HideInInspector]
-    public UnityEvent EV_openGate;
-    public UnityEvent EV_cameraAnimationEnd;
     //event for player death.
     //string is for the cause of death, either by interloper, crying face or tickler (anti-hide measures)
     [HideInInspector]
