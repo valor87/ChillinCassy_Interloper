@@ -77,7 +77,7 @@ public class CameraAnimation : MonoBehaviour
     /// Play the camera animations
     /// </summary>
     [ContextMenu("Play Animation")]
-    public void startCameraMovement()
+    private void startCameraMovement()
     {
         if (corutineRunning)
             return;
@@ -157,7 +157,6 @@ public class CameraAnimation : MonoBehaviour
         // stop the camera shaking
         corutineRunning = false;
         camShakeRunning = false;
-        GameObject.Find("EventCore").GetComponent<EventCore>().EV_cameraAnimationEnd.Invoke();
     }
 
     Vector3 shakeValue()
