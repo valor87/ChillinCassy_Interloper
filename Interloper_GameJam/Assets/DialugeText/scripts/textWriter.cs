@@ -9,7 +9,7 @@ public class textWriter : MonoBehaviour
     [SerializeField] string animBoolName = "confirmAnim";
     public GameObject animationConfirm;
     [Header("Key used for confirming the text")]
-    [SerializeField] bool getkeyInput = true;
+    [SerializeField] bool getkeyIput = true;
     [SerializeField] KeyCode confirmKey = KeyCode.Space;
 
     [Header("Not using key input to confirm")]
@@ -55,7 +55,7 @@ public class textWriter : MonoBehaviour
         {
             if (uiText != null)
             {
-                if (Input.GetKeyDown(confirmKey) && getkeyInput)
+                if (Input.GetKeyDown(confirmKey) && getkeyIput)
                 {
                     timerPerLetter = 0.01f;
                 }
@@ -88,7 +88,7 @@ public class textWriter : MonoBehaviour
         // turn both the confirm image on an turn the animation on
         setAnimator(animationConfirm, animBoolName, true);
 
-        if (getkeyInput) {
+        if (getkeyIput) {
             while (!continueText)
             {
                 if (Input.GetKeyDown(confirmKey))

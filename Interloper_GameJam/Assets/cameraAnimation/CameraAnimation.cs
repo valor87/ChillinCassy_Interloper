@@ -68,16 +68,13 @@ public class CameraAnimation : MonoBehaviour
             Debug.LogError("The animation curve is empty, add in a curve");
             this.enabled = false;
         }
-
-        if (cameraAni.playOnStart)
-            startCameraMovement();
     }
 
     /// <summary>
     /// Play the camera animations
     /// </summary>
     [ContextMenu("Play Animation")]
-    public void startCameraMovement()
+    private void startCameraMovement()
     {
         if (corutineRunning)
             return;
@@ -109,6 +106,8 @@ public class CameraAnimation : MonoBehaviour
         if (cameraFade.fadeIn)
             yield return fadeEffect(true, false, 255);
 
+        if (cameraShakeAmount != 0)
+            //StartCoroutine(cameraShake());
         corutineRunning = true;
         float timeTaken = 0;
         Vector3 pos = camTransform.position;
@@ -157,7 +156,6 @@ public class CameraAnimation : MonoBehaviour
         // stop the camera shaking
         corutineRunning = false;
         camShakeRunning = false;
-        GameObject.Find("EventCore").GetComponent<EventCore>().EV_cameraAnimationEnd.Invoke();
     }
 
     Vector3 shakeValue()
