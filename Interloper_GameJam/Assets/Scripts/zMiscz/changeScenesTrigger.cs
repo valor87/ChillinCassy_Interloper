@@ -8,5 +8,6 @@ public class changeScenesTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         SceneManager.LoadScene(sceneName);
+        
     }
 }
