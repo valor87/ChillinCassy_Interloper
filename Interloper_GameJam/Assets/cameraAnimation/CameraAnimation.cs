@@ -74,7 +74,7 @@ public class CameraAnimation : MonoBehaviour
     /// Play the camera animations
     /// </summary>
     [ContextMenu("Play Animation")]
-    private void startCameraMovement()
+    public void startCameraMovement()
     {
         if (corutineRunning)
             return;
