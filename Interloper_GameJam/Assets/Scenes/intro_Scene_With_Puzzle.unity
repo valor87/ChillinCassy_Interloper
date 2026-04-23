@@ -2421,17 +2421,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2246230873026278880, guid: e859ec6f31d91034795f9c4b69862b36, type: 3}
   m_PrefabInstance: {fileID: 863300233}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &888997301 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8551462552064792235, guid: 0b2d92c57824f804faae77faaaad2e6e, type: 3}
-  m_PrefabInstance: {fileID: 1960698070}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 449e4e3a514abff43807f9ad6eeddb26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &888997302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2079323406641009071, guid: 0b2d92c57824f804faae77faaaad2e6e, type: 3}
@@ -3670,9 +3659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1baa6f90a57270b42a60f58e91b67e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRotation: -60
-  turnAmount: 20
-  CameraAni: {fileID: 888997301}
 --- !u!1001 &1361061194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3747,6 +3733,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3789119244484099526, guid: f4a6c82ec8a2bad49a1e99b8dfeef1f1, type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f34a439a9eacde4e8ec37c9cf6afa38, type: 2}
     - target: {fileID: 5713033189073681416, guid: f4a6c82ec8a2bad49a1e99b8dfeef1f1, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -5134,30 +5124,6 @@ PrefabInstance:
       propertyPath: isIntroPuzzle
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2422997330981333489, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980201757538275963, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
-      propertyPath: SceneCamera
-      value: 
-      objectReference: {fileID: 527927274}
-    - target: {fileID: 2980201757538275963, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
-      propertyPath: NeedleParent
-      value: 
-      objectReference: {fileID: 722346717}
-    - target: {fileID: 5499516838233045588, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 66.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5499516838233045588, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.463
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786961276137429918, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
-      propertyPath: m_Name
-      value: PowerBoxEntirePuzzle
-      objectReference: {fileID: 0}
     - target: {fileID: 8094801295695192725, guid: 51f957ddfcda36e4fac9f5a55d37ab9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 66.28
@@ -5210,6 +5176,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2980201757538275963, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
+      propertyPath: SceneCamera
+      value: 
+      objectReference: {fileID: 527927274}
+    - target: {fileID: 2980201757538275963, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
+      propertyPath: NeedleParent
+      value: 
+      objectReference: {fileID: 722346717}
     - target: {fileID: 5499516838233045588, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 66.3
@@ -5217,6 +5191,10 @@ PrefabInstance:
     - target: {fileID: 5499516838233045588, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
       propertyPath: m_LocalPosition.z
       value: 11.463
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786961276137429918, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
+      propertyPath: m_Name
+      value: PowerBoxEntirePuzzle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6876,7 +6854,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9ecca1655ce1348a0560a4fd42a4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: LevelScene
 --- !u!1001 &2143741326
 PrefabInstance:
   m_ObjectHideFlags: 0
