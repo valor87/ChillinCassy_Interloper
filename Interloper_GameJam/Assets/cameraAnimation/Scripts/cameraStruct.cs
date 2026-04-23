@@ -20,6 +20,7 @@ public class CameraAni
     [Header("Looking at target")]
     public bool lookAt = false;
     public Transform lookAtTarget;
+    public bool playOnStart;
 }
 [Serializable]
 public class FadeBox
