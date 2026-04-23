@@ -8,6 +8,7 @@ public class PowerBoxEndCollsion : MonoBehaviour
     public EventCore EventCore;
     public PowerBoxScript PowerBoxScript;
     public List<Vector3> RandomPos = new List<Vector3>();
+    public bool isIntroPuzzle;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -17,6 +18,8 @@ public class PowerBoxEndCollsion : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         print("you win");
+        if (isIntroPuzzle)
+            EventCore.EV_openGate.Invoke();
         SwitchCollison(false);
         EventCore.disableFog.Invoke("power");
         PowerBoxScript.runrepair = false;

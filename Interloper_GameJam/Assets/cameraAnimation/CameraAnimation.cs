@@ -158,6 +158,7 @@ public class CameraAnimation : MonoBehaviour
         corutineRunning = false;
         camShakeRunning = false;
         GameObject.Find("EventCore").GetComponent<EventCore>().EV_cameraAnimationEnd.Invoke();
+        camTransform.localPosition = Vector3.zero;
     }
 
     Vector3 shakeValue()
