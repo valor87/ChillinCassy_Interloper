@@ -4986,63 +4986,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2246230873026278880, guid: e859ec6f31d91034795f9c4b69862b36, type: 3}
   m_PrefabInstance: {fileID: 1763701866}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1776792311
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6120935586732356630, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 66.461
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120935586732356630, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.9052637
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120935586732356630, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.473
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120935586732356630, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.500018
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120935586732356630, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.50001806
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120935586732356630, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.49998203
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120935586732356630, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.49998203
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120935586732356630, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120935586732356630, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120935586732356630, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -89.996
-      objectReference: {fileID: 0}
-    - target: {fileID: 6897894846481755820, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
-      propertyPath: m_Name
-      value: PowerBoxDial
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 96772543142e2f64aa2ab588da5c5147, type: 3}
 --- !u!1001 &1778740942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5191,13 +5134,29 @@ PrefabInstance:
       propertyPath: isIntroPuzzle
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2294913192003073883, guid: 51f957ddfcda36e4fac9f5a55d37ab9f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.26
+    - target: {fileID: 2422997330981333489, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5319219975796020608, guid: 51f957ddfcda36e4fac9f5a55d37ab9f, type: 3}
+    - target: {fileID: 2980201757538275963, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
+      propertyPath: SceneCamera
+      value: 
+      objectReference: {fileID: 527927274}
+    - target: {fileID: 2980201757538275963, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
+      propertyPath: NeedleParent
+      value: 
+      objectReference: {fileID: 722346717}
+    - target: {fileID: 5499516838233045588, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499516838233045588, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.463
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786961276137429918, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
       propertyPath: m_Name
-      value: PowerBoxPuzzle
+      value: PowerBoxEntirePuzzle
       objectReference: {fileID: 0}
     - target: {fileID: 8094801295695192725, guid: 51f957ddfcda36e4fac9f5a55d37ab9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5247,11 +5206,23 @@ PrefabInstance:
       propertyPath: NeedleParent
       value: 
       objectReference: {fileID: 722346717}
+    - target: {fileID: 2422997330981333489, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499516838233045588, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499516838233045588, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.463
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 51f957ddfcda36e4fac9f5a55d37ab9f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 9723ae96622bc6b4cb5add1ba963adfd, type: 3}
 --- !u!1001 &1814925791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7066,7 +7037,6 @@ SceneRoots:
   - {fileID: 1016627902}
   - {fileID: 1356173656}
   - {fileID: 1796893374}
-  - {fileID: 1776792311}
   - {fileID: 722346716}
   - {fileID: 1190176624}
   - {fileID: 1960698070}
