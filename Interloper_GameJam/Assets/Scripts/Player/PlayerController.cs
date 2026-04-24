@@ -113,14 +113,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("there was a collision");
         //checks in the parent (since the object that holds the collider is a child) for the interloper
         if (collision.gameObject.GetComponentInParent<Interloper>())
         {
             Interloper interloper = collision.gameObject.GetComponentInParent<Interloper>();
+            Debug.Log(interloper.name);
             //makes it so that the interloper will not kill you if it's already running away
             if (!interloper.returnToPoint)
+            {
+                Debug.Log(interloper.name+" killed you");
+
                 eventCore.death.Invoke("Interloper");
-            
+            }            
         }
         else if (collision.gameObject.GetComponentInParent<CryingFace>())
         {

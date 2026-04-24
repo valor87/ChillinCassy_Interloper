@@ -155,19 +155,16 @@ public class Interloper : MonoBehaviour
     //checks if there's an open bookshelf to escape through
     void CheckBookshelves(GameObject _bookshelf)
     {
-        print("checking the bookshelves");
         foreach (var bookshelf in bookshelfList)
         {
             if (!bookshelf.activelyBlocking)
             {
-                print("there is one free bookshelf");
                 allBookshelvesCovered = false;
                 returnPoint = bookshelf.transform.GetChild(0);
                 return;
             }
         }
 
-        print("all bookshelves are covered");
         allBookshelvesCovered = true;
     }
 
