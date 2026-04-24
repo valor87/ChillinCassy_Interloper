@@ -117,7 +117,7 @@ public class PlayerHidingInCloset : MonoBehaviour
     IEnumerator OpenDoorSlowly(float AmountToTurnDegrees)
     {
         float turnAmount = AmountToTurnDegrees;
-        float change = 0.1f;
+        float change = 0.5f;
         while(turnAmount > 0)
         {
            turnAmount -= change;

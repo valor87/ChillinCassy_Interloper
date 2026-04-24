@@ -117,10 +117,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.GetComponentInParent<Interloper>())
         {
             Interloper interloper = collision.gameObject.GetComponentInParent<Interloper>();
+            Debug.Log(interloper.name);
             //makes it so that the interloper will not kill you if it's already running away
             if (!interloper.returnToPoint)
+            {
                 eventCore.death.Invoke("Interloper");
-            
+            }            
         }
         else if (collision.gameObject.GetComponentInParent<CryingFace>())
         {
@@ -134,7 +136,7 @@ public class PlayerController : MonoBehaviour
         print("you dead");
         DeathScreen.SetActive(true);
         DeathScreen.GetComponent<Animator>().SetBool("DeathScene", true);
-        transform.position = new Vector3(8, 15, 0);
+        //transform.position = new Vector3(8, 15, 0);
         StartCoroutine(ItFoundYouAnim());
     }
     IEnumerator ItFoundYouAnim()
