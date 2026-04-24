@@ -20192,7 +20192,7 @@ MonoBehaviour:
   SoundManager: {fileID: 222712785}
   ShelfMoveing: {fileID: 8300000, guid: 282e1492301e4c642abd49b371839203, type: 3}
   activelyBlocking: 1
-  unblockDestination: {x: -0.03, y: 1.06, z: 18.71}
+  unblockDestination: {x: 1.82, y: 1.06, z: 20.574}
   moveSpeed: 2
 --- !u!65 &3641513206808249852
 BoxCollider:
